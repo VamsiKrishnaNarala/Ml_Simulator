@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-graphite-900 text-paper font-body antialiased;
+  background-image:
+    linear-gradient(rgba(94,234,212,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94,234,212,0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(94, 234, 212, 0.3);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #14171C;
+}
+::-webkit-scrollbar-thumb {
+  background: #333B47;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4A5463;
+}
+
+:focus-visible {
+  outline: 2px solid #5EEAD4;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.panel {
+  @apply bg-graphite-800/70 border border-graphite-600/60 rounded-2xl backdrop-blur-sm;
+}
+
+.label-eyebrow {
+  @apply font-mono text-[11px] uppercase tracking-[0.18em] text-cyan/70;
+}
+
+.btn-primary {
+  @apply inline-flex items-center gap-2 rounded-full bg-cyan px-5 py-2.5 font-display font-semibold text-graphite-950 transition hover:bg-cyan-bright hover:shadow-glow active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2 rounded-full border border-graphite-500 px-5 py-2.5 font-display font-semibold text-paper transition hover:border-cyan hover:text-cyan active:scale-[0.98];
+}
+
+.slider {
+  @apply w-full h-1.5 rounded-full appearance-none bg-graphite-600 accent-cyan cursor-pointer;
+}
