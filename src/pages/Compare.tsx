@@ -58,7 +58,7 @@ export default function Compare() {
                   title={d.blurb}
                   className={`rounded-lg border px-2 py-1.5 font-mono text-[11px] transition ${
                     datasetKind === d.id
-                      ? 'border-cyan bg-cyan/10 text-cyan'
+                      ? 'border-primary bg-primary/10 text-primary'
                       : 'border-graphite-600 text-graphite-500 hover:text-paper'
                   }`}
                 >
@@ -89,13 +89,13 @@ export default function Compare() {
               {ALL_ALGOS.map((id) => (
                 <label
                   key={id}
-                  className="flex cursor-pointer items-center gap-2 rounded-lg border border-graphite-600 px-3 py-2 font-mono text-xs text-graphite-500 has-[:checked]:border-cyan has-[:checked]:text-cyan"
+                  className="flex cursor-pointer items-center gap-2 rounded-lg border border-graphite-600 px-3 py-2 font-mono text-xs text-graphite-500 has-[:checked]:border-primary has-[:checked]:text-primary"
                 >
                   <input
                     type="checkbox"
                     checked={selected.includes(id)}
                     onChange={() => toggleAlgo(id)}
-                    className="accent-cyan"
+                    className="accent-primary"
                   />
                   {ALGO_META[id].label}
                 </label>
@@ -110,7 +110,7 @@ export default function Compare() {
               <Panel key={algo} className="!p-3">
                 <div className="mb-2 flex items-center justify-between px-1">
                   <span className="font-mono text-xs text-paper">{ALGO_META[algo].short}</span>
-                  <span className="font-mono text-xs text-cyan">{(metrics.accuracy * 100).toFixed(1)}%</span>
+                  <span className="font-mono text-xs text-primary">{(metrics.accuracy * 100).toFixed(1)}%</span>
                 </div>
                 <Plot points={train} predict={model.predict} showBoundary height={220} resolution={32} ariaLabel={`${ALGO_META[algo].label} decision boundary`} />
               </Panel>
@@ -135,7 +135,7 @@ export default function Compare() {
                 {results.map(({ algo, metrics }) => (
                   <tr key={algo} className="border-t border-graphite-700/70">
                     <td className="px-2 py-2 text-paper">{ALGO_META[algo].label}</td>
-                    <td className="px-2 py-2 text-right text-cyan">{(metrics.accuracy * 100).toFixed(1)}%</td>
+                    <td className="px-2 py-2 text-right text-primary">{(metrics.accuracy * 100).toFixed(1)}%</td>
                     <td className="px-2 py-2 text-right text-graphite-500">{metrics.precision.toFixed(2)}</td>
                     <td className="px-2 py-2 text-right text-graphite-500">{metrics.recall.toFixed(2)}</td>
                     <td className="px-2 py-2 text-right text-graphite-500">{metrics.f1.toFixed(2)}</td>

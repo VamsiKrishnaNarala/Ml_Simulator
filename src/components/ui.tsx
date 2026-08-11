@@ -29,7 +29,7 @@ export function SliderControl({
     <div>
       <div className="mb-1.5 flex items-center justify-between">
         <label className="font-mono text-xs text-graphite-500">{label}</label>
-        <span className="font-mono text-xs text-cyan">{formatValue ? formatValue(value) : value}</span>
+        <span className="font-mono text-xs text-primary">{formatValue ? formatValue(value) : value}</span>
       </div>
       <input
         type="range"
@@ -64,7 +64,7 @@ export function SegmentedControl<T extends string>({
           onClick={() => onChange(opt.id)}
           className={`rounded-full border px-3 py-1.5 font-mono text-xs transition ${
             value === opt.id
-              ? 'border-cyan bg-cyan/10 text-cyan'
+              ? 'border-primary bg-primary/10 text-primary'
               : 'border-graphite-600 text-graphite-500 hover:text-paper'
           }`}
         >
@@ -87,7 +87,7 @@ export function StatCard({ label, value, hint }: { label: string; value: string;
 
 export function InsightBox({ children }: { children: ReactNode }) {
   return (
-    <div className="rounded-xl border border-cyan/25 bg-cyan/5 p-4 text-sm leading-relaxed text-paper/90">
+    <div className="rounded-xl border border-primary/25 bg-primary/5 p-4 text-sm leading-relaxed text-paper/90">
       {children}
     </div>
   )

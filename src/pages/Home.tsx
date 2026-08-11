@@ -40,7 +40,7 @@ export default function Home() {
             <h1 className="font-display text-4xl font-semibold leading-[1.08] tracking-tight text-paper sm:text-5xl lg:text-6xl">
               Machine Learning,
               <br />
-              <span className="text-cyan">you can see.</span>
+              <span className="text-primary">you can see.</span>
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-graphite-500 sm:text-lg">
               Stop memorizing algorithms. Move the data. Watch the boundary bend.
@@ -84,8 +84,8 @@ export default function Home() {
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {topics.map((t) => (
-            <Panel key={t.title} className="transition hover:border-cyan/40 hover:shadow-glow">
-              <t.icon className="h-5 w-5 text-cyan" strokeWidth={1.75} />
+            <Panel key={t.title} className="transition hover:border-primary/40 hover:shadow-glow">
+              <t.icon className="h-5 w-5 text-primary" strokeWidth={1.75} />
               <h3 className="mt-3 font-display text-lg font-semibold text-paper">{t.title}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-graphite-500">{t.desc}</p>
             </Panel>
@@ -103,7 +103,7 @@ export default function Home() {
               { n: '03', title: 'See it think', desc: 'Every prediction, split, and gradient step is rendered as it happens.' },
             ].map((s) => (
               <div key={s.n}>
-                <span className="font-mono text-sm text-cyan/70">{s.n}</span>
+                <span className="font-mono text-sm text-primary/70">{s.n}</span>
                 <h3 className="mt-2 font-display text-xl font-semibold text-paper">{s.title}</h3>
                 <p className="mt-1.5 text-sm text-graphite-500">{s.desc}</p>
               </div>

@@ -22,21 +22,21 @@ export default function About() {
 
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         <Panel>
-          <Cpu className="h-5 w-5 text-cyan" strokeWidth={1.75} />
+          <Cpu className="h-5 w-5 text-primary" strokeWidth={1.75} />
           <h3 className="mt-3 font-display text-base font-semibold text-paper">Real models</h3>
           <p className="mt-1.5 text-sm text-graphite-500">
             No mock screens. Every boundary, split, and centroid is computed by real, running code.
           </p>
         </Panel>
         <Panel>
-          <ShieldCheck className="h-5 w-5 text-cyan" strokeWidth={1.75} />
+          <ShieldCheck className="h-5 w-5 text-primary" strokeWidth={1.75} />
           <h3 className="mt-3 font-display text-base font-semibold text-paper">Fully client-side</h3>
           <p className="mt-1.5 text-sm text-graphite-500">
             No server, no database, no accounts. Progress is saved only in your browser's local storage.
           </p>
         </Panel>
         <Panel>
-          <Sparkles className="h-5 w-5 text-cyan" strokeWidth={1.75} />
+          <Sparkles className="h-5 w-5 text-primary" strokeWidth={1.75} />
           <h3 className="mt-3 font-display text-base font-semibold text-paper">Built to experiment</h3>
           <p className="mt-1.5 text-sm text-graphite-500">
             Change one thing at a time and watch what happens — that's the whole method.

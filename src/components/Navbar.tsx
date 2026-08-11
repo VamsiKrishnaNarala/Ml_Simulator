@@ -18,8 +18,8 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-graphite-700/70 bg-graphite-900/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5">
         <NavLink to="/" className="flex items-center gap-2 font-display text-lg font-semibold text-paper">
-          <FlaskConical className="h-5 w-5 text-cyan" strokeWidth={2.25} />
-          ML<span className="text-cyan">Lab</span>
+          <FlaskConical className="h-5 w-5 text-primary" strokeWidth={2.25} />
+          ML<span className="text-primary">Lab</span>
         </NavLink>
 
         <nav className="hidden items-center gap-1 lg:flex">
@@ -30,7 +30,7 @@ export default function Navbar() {
               end={l.to === '/'}
               className={({ isActive }) =>
                 `rounded-full px-3.5 py-2 font-mono text-[13px] tracking-wide transition ${
-                  isActive ? 'bg-graphite-700 text-cyan' : 'text-graphite-500 hover:text-paper'
+                  isActive ? 'bg-graphite-700 text-primary' : 'text-graphite-500 hover:text-paper'
                 }`
               }
             >
@@ -58,7 +58,7 @@ export default function Navbar() {
               end={l.to === '/'}
               onClick={() => setOpen(false)}
               className={({ isActive }) =>
-                `rounded-lg px-3 py-2.5 font-mono text-sm ${isActive ? 'bg-graphite-700 text-cyan' : 'text-graphite-500'}`
+                `rounded-lg px-3 py-2.5 font-mono text-sm ${isActive ? 'bg-graphite-700 text-primary' : 'text-graphite-500'}`
               }
             >
               {l.label}

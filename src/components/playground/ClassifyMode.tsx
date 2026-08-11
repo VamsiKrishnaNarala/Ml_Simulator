@@ -101,7 +101,7 @@ export default function ClassifyMode() {
                     title={d.blurb}
                     className={`rounded-lg border px-2 py-1.5 font-mono text-[11px] transition ${
                       datasetKind === d.id
-                        ? 'border-cyan bg-cyan/10 text-cyan'
+                        ? 'border-primary bg-primary/10 text-primary'
                         : 'border-graphite-600 text-graphite-500 hover:text-paper'
                     }`}
                   >
@@ -147,7 +147,7 @@ export default function ClassifyMode() {
                 onClick={() => setAlgo(id)}
                 className={`rounded-lg border px-3 py-2 text-left font-mono text-xs transition ${
                   algo === id
-                    ? 'border-cyan bg-cyan/10 text-cyan'
+                    ? 'border-primary bg-primary/10 text-primary'
                     : 'border-graphite-600 text-graphite-500 hover:text-paper'
                 }`}
               >
@@ -194,7 +194,7 @@ export default function ClassifyMode() {
                 : 'Click the graph to add a labeled point'}
             </p>
             {extraPoints.length > 0 || queryPoint ? (
-              <button onClick={resetExtras} className="font-mono text-[11px] text-cyan hover:underline">
+              <button onClick={resetExtras} className="font-mono text-[11px] text-primary hover:underline">
                 clear added points
               </button>
             ) : null}
@@ -216,12 +216,12 @@ export default function ClassifyMode() {
             <div className="flex flex-wrap gap-3">
               {Array.from(voteCounts.entries()).map(([label, count]) => (
                 <span key={label} className="font-mono text-sm">
-                  class {label}: <strong className="text-cyan">{count}</strong>
+                  class {label}: <strong className="text-primary">{count}</strong>
                 </span>
               ))}
             </div>
             <p className="mt-2 text-sm">
-              Prediction → <strong className="text-cyan">class {model.predict(queryPoint!.x, queryPoint!.y)}</strong>.
+              Prediction → <strong className="text-primary">class {model.predict(queryPoint!.x, queryPoint!.y)}</strong>.
               KNN looks at the {k} closest points and lets them vote.
             </p>
           </InsightBox>
@@ -253,13 +253,13 @@ export default function ClassifyMode() {
             <tbody>
               <tr>
                 <td className="pr-2 text-graphite-500">Actual +</td>
-                <td className="rounded bg-cyan/15 px-2 py-2 text-center text-cyan">{confusion.tp}</td>
+                <td className="rounded bg-primary/15 px-2 py-2 text-center text-primary">{confusion.tp}</td>
                 <td className="rounded bg-rose/10 px-2 py-2 text-center text-rose">{confusion.fn}</td>
               </tr>
               <tr>
                 <td className="pr-2 text-graphite-500">Actual −</td>
                 <td className="rounded bg-rose/10 px-2 py-2 text-center text-rose">{confusion.fp}</td>
-                <td className="rounded bg-cyan/15 px-2 py-2 text-center text-cyan">{confusion.tn}</td>
+                <td className="rounded bg-primary/15 px-2 py-2 text-center text-primary">{confusion.tn}</td>
               </tr>
             </tbody>
           </table>
@@ -267,7 +267,7 @@ export default function ClassifyMode() {
 
         <Panel>
           <div className="flex items-start gap-2">
-            <Info className="mt-0.5 h-4 w-4 shrink-0 text-cyan" />
+            <Info className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
             <p className="text-xs leading-relaxed text-graphite-500">
               <strong className="text-paper">{ALGO_META[algo].label}</strong> is best for{' '}
               {ALGO_META[algo].bestFor.toLowerCase()}. Complexity: {ALGO_META[algo].complexity}.

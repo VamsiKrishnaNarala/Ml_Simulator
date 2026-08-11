@@ -102,7 +102,7 @@ export default function Algorithms() {
                 aria-expanded={isOpen}
               >
                 <span className="font-display text-lg font-semibold text-paper">{d.name}</span>
-                <ChevronDown className={`h-4 w-4 text-graphite-500 transition-transform ${isOpen ? 'rotate-180 text-cyan' : ''}`} />
+                <ChevronDown className={`h-4 w-4 text-graphite-500 transition-transform ${isOpen ? 'rotate-180 text-primary' : ''}`} />
               </button>
               {isOpen && (
                 <div className="space-y-5 border-t border-graphite-700/70 px-5 py-5">
@@ -129,7 +129,7 @@ export default function Algorithms() {
                   </div>
                   <Link
                     to="/playground"
-                    className="inline-flex items-center gap-1.5 font-mono text-xs text-cyan hover:underline"
+                    className="inline-flex items-center gap-1.5 font-mono text-xs text-primary hover:underline"
                   >
                     Try it in the playground <ArrowRight className="h-3.5 w-3.5" />
                   </Link>

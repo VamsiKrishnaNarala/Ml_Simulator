@@ -146,7 +146,7 @@ export default function RegressMode() {
         </Panel>
         <Panel>
           <p className="font-mono text-xs text-graphite-500">Equation</p>
-          <p className="mt-1 font-display text-lg text-cyan">
+          <p className="mt-1 font-display text-lg text-primary">
             y = {current.m.toFixed(2)}x + {current.b.toFixed(2)}
           </p>
         </Panel>

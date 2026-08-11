@@ -63,7 +63,7 @@ export default function Learn() {
 
       <div className="mt-6">
         <div className="h-2 w-full overflow-hidden rounded-full bg-graphite-700">
-          <div className="h-full rounded-full bg-cyan transition-all" style={{ width: `${progressPct}%` }} />
+          <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${progressPct}%` }} />
         </div>
         <p className="mt-2 font-mono text-xs text-graphite-500">{progressPct}% complete</p>
       </div>
@@ -113,7 +113,7 @@ export default function Learn() {
                 <th className="px-3 py-2 font-normal">Height</th>
                 <th className="px-3 py-2 font-normal">Weight</th>
                 <th className="px-3 py-2 font-normal">Exercise</th>
-                <th className="px-3 py-2 font-normal text-cyan">Category (label)</th>
+                <th className="px-3 py-2 font-normal text-primary">Category (label)</th>
                 <th className="px-3 py-2" />
               </tr>
             </thead>
@@ -125,7 +125,7 @@ export default function Learn() {
                       type="number"
                       value={row.height}
                       onChange={(e) => updateRow(i, { height: Number(e.target.value) })}
-                      className="w-16 rounded bg-graphite-800 px-2 py-1 text-paper outline-none focus-visible:outline-cyan"
+                      className="w-16 rounded bg-graphite-800 px-2 py-1 text-paper outline-none focus-visible:outline-primary"
                     />
                   </td>
                   <td className="px-2 py-1.5">
@@ -133,14 +133,14 @@ export default function Learn() {
                       type="number"
                       value={row.weight}
                       onChange={(e) => updateRow(i, { weight: Number(e.target.value) })}
-                      className="w-16 rounded bg-graphite-800 px-2 py-1 text-paper outline-none focus-visible:outline-cyan"
+                      className="w-16 rounded bg-graphite-800 px-2 py-1 text-paper outline-none focus-visible:outline-primary"
                     />
                   </td>
                   <td className="px-2 py-1.5">
                     <select
                       value={row.exercise}
                       onChange={(e) => updateRow(i, { exercise: e.target.value as Row['exercise'] })}
-                      className="rounded bg-graphite-800 px-2 py-1 text-paper outline-none focus-visible:outline-cyan"
+                      className="rounded bg-graphite-800 px-2 py-1 text-paper outline-none focus-visible:outline-primary"
                     >
                       <option>High</option>
                       <option>Low</option>
@@ -150,7 +150,7 @@ export default function Learn() {
                     <select
                       value={row.category}
                       onChange={(e) => updateRow(i, { category: e.target.value as Row['category'] })}
-                      className="rounded bg-graphite-800 px-2 py-1 text-cyan outline-none focus-visible:outline-cyan"
+                      className="rounded bg-graphite-800 px-2 py-1 text-primary outline-none focus-visible:outline-primary"
                     >
                       <option>Fit</option>
                       <option>Unfit</option>
@@ -200,9 +200,9 @@ export default function Learn() {
           />
         </div>
         <div className="mt-4 grid grid-cols-2 gap-3">
-          <div className="rounded-xl border border-cyan/30 bg-cyan/5 p-4 text-center">
+          <div className="rounded-xl border border-primary/30 bg-primary/5 p-4 text-center">
             <p className="font-mono text-xs text-graphite-500">Training</p>
-            <p className="font-display text-2xl font-semibold text-cyan">{trainCount} samples</p>
+            <p className="font-display text-2xl font-semibold text-primary">{trainCount} samples</p>
           </div>
           <div className="rounded-xl border border-rose/30 bg-rose/5 p-4 text-center">
             <p className="font-mono text-xs text-graphite-500">Testing</p>
@@ -210,7 +210,7 @@ export default function Learn() {
           </div>
         </div>
         <div className="mt-3 flex h-8 w-full overflow-hidden rounded-full border border-graphite-600">
-          <div className="bg-cyan/70 transition-all" style={{ width: `${trainPct}%` }} />
+          <div className="bg-primary/70 transition-all" style={{ width: `${trainPct}%` }} />
           <div className="flex-1 bg-rose/70 transition-all" />
         </div>
       </ModuleShell>
@@ -296,7 +296,7 @@ function ModuleShell({
         <button
           onClick={() => onToggle(id)}
           className={`flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-xs transition ${
-            completed ? 'border-cyan bg-cyan/10 text-cyan' : 'border-graphite-600 text-graphite-500 hover:text-paper'
+            completed ? 'border-primary bg-primary/10 text-primary' : 'border-graphite-600 text-graphite-500 hover:text-paper'
           }`}
         >
           {completed ? <Check className="h-3.5 w-3.5" /> : <Circle className="h-3.5 w-3.5" />}
@@ -310,11 +310,11 @@ function ModuleShell({
 
 function FlowCard({ title, steps, accent }: { title: string; steps: string[]; accent?: boolean }) {
   return (
-    <div className={`rounded-xl border p-4 ${accent ? 'border-cyan/30 bg-cyan/5' : 'border-graphite-600 bg-graphite-900/50'}`}>
+    <div className={`rounded-xl border p-4 ${accent ? 'border-primary/30 bg-primary/5' : 'border-graphite-600 bg-graphite-900/50'}`}>
       <p className="font-mono text-[11px] uppercase tracking-wide text-graphite-500">{title}</p>
       <div className="mt-2 flex flex-wrap items-center gap-2 font-mono text-sm text-paper">
         {steps.map((s, i) => (
-          <span key={i} className={i === steps.length - 1 ? 'text-cyan' : ''}>
+          <span key={i} className={i === steps.length - 1 ? 'text-primary' : ''}>
             {s}
           </span>
         ))}
@@ -325,7 +325,7 @@ function FlowCard({ title, steps, accent }: { title: string; steps: string[]; ac
 
 function PlaygroundLink({ to, label }: { to: string; label: string }) {
   return (
-    <Link to={to} className="inline-flex items-center gap-1.5 font-mono text-sm text-cyan hover:underline">
+    <Link to={to} className="inline-flex items-center gap-1.5 font-mono text-sm text-primary hover:underline">
       {label} <ArrowRight className="h-3.5 w-3.5" />
     </Link>
   )

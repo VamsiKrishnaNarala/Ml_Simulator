@@ -150,7 +150,7 @@ export default function Quiz() {
         </span>
       </div>
       <div className="mb-6 h-1.5 w-full overflow-hidden rounded-full bg-graphite-700">
-        <div className="h-full rounded-full bg-cyan transition-all" style={{ width: `${progressPct}%` }} />
+        <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${progressPct}%` }} />
       </div>
 
       <Panel>
@@ -167,7 +167,7 @@ export default function Quiz() {
                 disabled={selected !== null}
                 className={`flex w-full items-center justify-between rounded-xl border px-4 py-3 text-left text-sm transition ${
                   showState && isCorrect
-                    ? 'border-cyan bg-cyan/10 text-cyan'
+                    ? 'border-primary bg-primary/10 text-primary'
                     : showState && isSelected
                     ? 'border-rose bg-rose/10 text-rose'
                     : 'border-graphite-600 text-graphite-500 hover:border-graphite-500 hover:text-paper'
