@@ -11,10 +11,7 @@ export default function Footer() {
           </span>
         </div>
         <div className="flex flex-col items-center sm:items-end gap-1">
-          <p className="font-mono text-xs text-graphite-500">
-            Every simulation runs live in your browser — no server, no data leaves this tab.
-          </p>
-          <p className="font-mono text-xs text-graphite-500 mt-2">
+          <p className="font-display font-semibold text-sm text-primary">
             This was Made by Dr.Sumalatha Lingamgunta, Professor of CSE, UCEK, JNTUK
           </p>
         </div>
