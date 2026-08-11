@@ -55,13 +55,7 @@ export default function Home() {
                 Open ML Playground
               </Link>
             </div>
-            <div className="mt-10 flex items-center gap-6 font-mono text-xs text-graphite-500">
-              <span>0 backend calls</span>
-              <span className="h-1 w-1 rounded-full bg-graphite-600" />
-              <span>0 data leaves your tab</span>
-              <span className="h-1 w-1 rounded-full bg-graphite-600" />
-              <span>100% real models</span>
-            </div>
+
           </div>
 
           <div className="relative min-h-[320px] overflow-hidden rounded-2xl border border-graphite-600/60 bg-graphite-950/50 lg:min-h-[420px]">

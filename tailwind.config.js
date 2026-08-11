@@ -14,8 +14,8 @@ export default {
         },
         paper: '#F4F2EC',
         primary: {
-          DEFAULT: '#6366F1',
-          bright: '#818CF8',
+          DEFAULT: '#38BDF8',
+          bright: '#7DD3FC',
         },
         amber: {
           DEFAULT: '#F5A623',
@@ -33,13 +33,13 @@ export default {
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       backgroundImage: {
-        grid: 'linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px)',
+        grid: 'linear-gradient(rgba(56,189,248,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.06) 1px, transparent 1px)',
       },
       backgroundSize: {
         grid: '28px 28px',
       },
       boxShadow: {
-        glow: '0 0 0 1px rgba(99,102,241,0.15), 0 0 24px rgba(99,102,241,0.08)',
+        glow: '0 0 0 1px rgba(56,189,248,0.15), 0 0 24px rgba(56,189,248,0.08)',
       },
       keyframes: {
         dash: {

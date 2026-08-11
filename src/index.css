@@ -18,14 +18,14 @@ html {
 body {
   @apply bg-graphite-900 text-paper font-body antialiased;
   background-image:
-    linear-gradient(rgba(99,102,241,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99,102,241,0.05) 1px, transparent 1px);
+    linear-gradient(rgba(56,189,248,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56,189,248,0.05) 1px, transparent 1px);
   background-size: 32px 32px;
   background-attachment: fixed;
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
+  background: rgba(56, 189, 248, 0.3);
 }
 
 ::-webkit-scrollbar {
@@ -44,7 +44,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid #6366F1;
+  outline: 2px solid #38BDF8;
   outline-offset: 2px;
   border-radius: 4px;
 }
