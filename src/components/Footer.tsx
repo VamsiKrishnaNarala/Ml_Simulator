@@ -12,7 +12,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-col items-center sm:items-end gap-1">
           <p className="font-display font-semibold text-sm text-primary">
-            This was Made by Dr.Sumalatha Lingamgunta, Professor of CSE, UCEK, JNTUK
+            Made by Dr.Sumalatha Lingamgunta, Professor of CSE, UCEK, JNTUK
           </p>
         </div>
       </div>
