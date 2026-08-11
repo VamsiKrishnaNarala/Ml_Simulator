@@ -10,18 +10,27 @@ export default function Feedback() {
   // You can replace this with your actual Formspree endpoint
   const FORMSPREE_URL = 'https://formspree.io/f/xzeprjrp'
 
+  const [errorMessage, setErrorMessage] = useState('Failed to submit feedback. Please try again.')
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus('submitting')
+    setErrorMessage('')
 
     const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get('name'),
+      rollNumber: formData.get('rollNumber'),
+      message: formData.get('message')
+    }
     
     try {
       const response = await fetch(FORMSPREE_URL, {
         method: 'POST',
-        body: formData,
+        body: JSON.stringify(data),
         headers: {
-          Accept: 'application/json'
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
         }
       })
       
@@ -29,19 +38,21 @@ export default function Feedback() {
         setStatus('success')
         e.currentTarget.reset()
       } else {
-        // If the user hasn't set up the formspree URL, just show success for the demo
-        if (FORMSPREE_URL.includes('your_form_id')) {
-          setTimeout(() => setStatus('success'), 1000)
+        const data = await response.json().catch(() => null)
+        console.error('Formspree response error:', data)
+        if (data && data.errors && data.errors.length > 0) {
+          setErrorMessage(data.errors[0].message)
+        } else if (data && data.error) {
+          setErrorMessage(data.error)
         } else {
-          setStatus('error')
+          setErrorMessage('Failed to submit feedback. Please try again. Have you activated the form in your email?')
         }
-      }
-    } catch (err) {
-      if (FORMSPREE_URL.includes('your_form_id')) {
-        setTimeout(() => setStatus('success'), 1000)
-      } else {
         setStatus('error')
       }
+    } catch (err) {
+      console.error('Network error:', err)
+      setErrorMessage('Network error. Please check your connection and try again.')
+      setStatus('error')
     }
   }
 
@@ -111,7 +122,7 @@ export default function Feedback() {
             </div>
 
             {status === 'error' && (
-              <p className="text-sm text-rose">Failed to submit feedback. Please try again.</p>
+              <p className="text-sm text-rose">{errorMessage}</p>
             )}
 
             <button 
