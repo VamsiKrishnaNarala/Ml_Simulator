@@ -5,23 +5,24 @@ export default {
     extend: {
       colors: {
         graphite: {
-          950: '#0B0D10',
-          900: '#14171C',
-          800: '#1B1F26',
-          700: '#242A33',
-          600: '#333B47',
-          500: '#4A5463',
+          950: '#FFFFFF',
+          900: '#F8FAFC',
+          800: '#F1F5F9',
+          700: '#E2E8F0',
+          600: '#CBD5E1',
+          500: '#64748B',
+          400: '#94A3B8',
         },
-        paper: '#F4F2EC',
+        paper: '#0F172A',
         primary: {
-          DEFAULT: '#38BDF8',
-          bright: '#7DD3FC',
+          DEFAULT: '#2563EB',
+          bright: '#3B82F6',
         },
         amber: {
-          DEFAULT: '#F5A623',
+          DEFAULT: '#D97706',
         },
         rose: {
-          DEFAULT: '#FF6B7A',
+          DEFAULT: '#E11D48',
         },
         blue: {
           class: '#5B8DEF',
@@ -33,13 +34,13 @@ export default {
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       backgroundImage: {
-        grid: 'linear-gradient(rgba(56,189,248,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.06) 1px, transparent 1px)',
+        grid: 'linear-gradient(rgba(37,99,235,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.06) 1px, transparent 1px)',
       },
       backgroundSize: {
         grid: '28px 28px',
       },
       boxShadow: {
-        glow: '0 0 0 1px rgba(56,189,248,0.15), 0 0 24px rgba(56,189,248,0.08)',
+        glow: '0 0 0 1px rgba(37,99,235,0.15), 0 0 24px rgba(37,99,235,0.08)',
       },
       keyframes: {
         dash: {
