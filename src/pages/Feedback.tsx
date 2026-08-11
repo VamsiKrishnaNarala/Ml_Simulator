@@ -1,12 +1,47 @@
-import { Send } from 'lucide-react'
+import { useState } from 'react'
+import { Send, CheckCircle2 } from 'lucide-react'
 import { Panel, Eyebrow } from '../components/ui'
 import { useAuth } from '../contexts/AuthContext'
 
 export default function Feedback() {
   const { user } = useAuth()
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   // You can replace this with your actual Formspree endpoint
   const FORMSPREE_URL = 'https://formspree.io/f/xzeprjrp'
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setStatus('submitting')
+    setErrorMessage('')
+
+    const formData = new FormData(e.currentTarget)
+    
+    try {
+      const response = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      
+      if (response.ok) {
+        setStatus('success')
+        e.currentTarget.reset()
+      } else {
+        const data = await response.json().catch(() => null)
+        console.error('Formspree error:', data)
+        setErrorMessage(data?.errors?.[0]?.message || data?.error || 'Failed to submit feedback. Please try again.')
+        setStatus('error')
+      }
+    } catch (err) {
+      console.error('Network error:', err)
+      setErrorMessage('Network error. Please check your connection or disable your adblocker.')
+      setStatus('error')
+    }
+  }
 
   return (
     <div className="mx-auto max-w-2xl px-5 py-14">
@@ -17,7 +52,20 @@ export default function Feedback() {
       </p>
 
       <Panel className="p-6 sm:p-8">
-        <form action={FORMSPREE_URL} method="POST" className="space-y-5">
+        {status === 'success' ? (
+          <div className="flex flex-col items-center justify-center py-10 text-center">
+            <CheckCircle2 className="h-12 w-12 text-primary mb-4" />
+            <h2 className="text-xl font-semibold text-paper">Thank You!</h2>
+            <p className="text-graphite-500 mt-2">Your feedback has been submitted successfully.</p>
+            <button 
+              onClick={() => setStatus('idle')} 
+              className="btn-secondary mt-6"
+            >
+              Submit another response
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-graphite-500">
               Name
@@ -60,13 +108,25 @@ export default function Feedback() {
             ></textarea>
           </div>
 
-          <button 
-            type="submit" 
-            className="btn-primary w-full justify-center transition hover:bg-primary-bright"
-          >
-            <Send className="h-4 w-4" /> Send Feedback
-          </button>
-        </form>
+            {status === 'error' && (
+              <p className="text-sm text-rose">{errorMessage}</p>
+            )}
+
+            <button 
+              type="submit" 
+              disabled={status === 'submitting'}
+              className="btn-primary w-full justify-center transition hover:bg-primary-bright disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {status === 'submitting' ? (
+                'Sending...'
+              ) : (
+                <>
+                  <Send className="h-4 w-4" /> Send Feedback
+                </>
+              )}
+            </button>
+          </form>
+        )}
       </Panel>
     </div>
   )
