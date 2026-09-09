@@ -1,6 +1,6 @@
 import { useState, type ReactNode, Fragment } from 'react'
 import MathBlock, { MathDisplay, MathInline } from '../MathBlock'
-import { ChevronDown, ChevronRight } from 'lucide-react'
+import { ChevronDown, ChevronRight, CheckCircle2, BookOpen, GraduationCap } from 'lucide-react'
 
 interface TrainingTheoryProps {
   mode: 'classification' | 'regression' | 'clustering';

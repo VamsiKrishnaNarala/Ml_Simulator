@@ -10,7 +10,7 @@ interface Centroid {
 }
 
 interface PlotProps {
-  points: Point2D[]
+  points?: Point2D[]
   domain?: number // data spans [-domain, domain] on both axes
   predict?: (x: number, y: number) => number
   showBoundary?: boolean
@@ -29,7 +29,7 @@ interface PlotProps {
 }
 
 export default function Plot({
-  points,
+  points = [],
   domain = 10,
   predict,
   showBoundary = true,
