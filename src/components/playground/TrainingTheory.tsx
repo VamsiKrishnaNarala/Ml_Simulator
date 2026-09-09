@@ -1,6 +1,6 @@
-import { useState, type ReactNode } from 'react'
-import MathBlock from '../MathBlock'
-import { ChevronDown } from 'lucide-react'
+import { useState, type ReactNode, Fragment } from 'react'
+import MathBlock, { MathDisplay, MathInline } from '../MathBlock'
+import { ChevronDown, ChevronRight } from 'lucide-react'
 
 interface TrainingTheoryProps {
   mode: 'classification' | 'regression' | 'clustering';
@@ -282,13 +282,13 @@ export default function TrainingTheory({
                   'Repeat until convergence',
                   'Stop when loss change < tolerance',
                 ].map((step, idx, arr) => (
-                  <React.Fragment key={idx}>
+                  <Fragment key={idx}>
                     <div className="bg-surface-secondary px-3 py-2 rounded-md border border-default">
                       <span className="text-brand font-mono mr-2">{idx + 1}.</span>
                       {step.includes('\\') ? <MathInline math={step} /> : step}
                     </div>
                     {idx < arr.length - 1 && <ChevronRight className="w-4 h-4 text-muted" />}
-                  </React.Fragment>
+                  </Fragment>
                 ))}
               </div>
             </div>
