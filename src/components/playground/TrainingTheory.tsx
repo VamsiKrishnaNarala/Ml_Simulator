@@ -120,7 +120,7 @@ export default function TrainingTheory({
           ) : (
             <div className="space-y-4">
               <div className="bg-black/30 p-4 rounded-lg overflow-x-auto">
-                <MathDisplay math="\hat{y} = f(X; \theta)" />
+                <MathDisplay latex="\hat{y} = f(X; \theta)" />
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
@@ -137,13 +137,13 @@ export default function TrainingTheory({
                     </tr>
                     <tr className="border-b border-default">
                       <td className="py-2 px-4 font-mono">
-                        <MathInline math="\theta" />
+                        <MathInline latex="\theta" />
                       </td>
                       <td className="py-2 px-4">Model parameters (weights, biases)</td>
                     </tr>
                     <tr className="border-b border-default">
                       <td className="py-2 px-4 font-mono">
-                        <MathInline math="\hat{y}" />
+                        <MathInline latex="\hat{y}" />
                       </td>
                       <td className="py-2 px-4">Predicted output</td>
                     </tr>
@@ -165,7 +165,7 @@ export default function TrainingTheory({
               <h3 className="font-semibold text-lg">Mean Squared Error (MSE)</h3>
               {globalAdvanced ? (
                 <div className="bg-black/30 p-4 rounded-lg overflow-x-auto">
-                  <MathDisplay math="\mathcal{L} = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2" />
+                  <MathDisplay latex="\mathcal{L} = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2" />
                 </div>
               ) : (
                 <div className="space-y-4">
@@ -194,7 +194,7 @@ export default function TrainingTheory({
               <h3 className="font-semibold text-lg">Binary Cross-Entropy</h3>
               {globalAdvanced ? (
                 <div className="bg-black/30 p-4 rounded-lg overflow-x-auto">
-                  <MathDisplay math="\mathcal{L} = -\frac{1}{n}\sum_{i=1}^{n}[y_i\log(\hat{y}_i) + (1-y_i)\log(1-\hat{y}_i)]" />
+                  <MathDisplay latex="\mathcal{L} = -\frac{1}{n}\sum_{i=1}^{n}[y_i\log(\hat{y}_i) + (1-y_i)\log(1-\hat{y}_i)]" />
                 </div>
               ) : (
                 <div className="space-y-4">
@@ -215,12 +215,12 @@ export default function TrainingTheory({
               <h3 className="font-semibold text-lg">Inertia (Within-Cluster Sum of Squares)</h3>
               {globalAdvanced ? (
                 <div className="bg-black/30 p-4 rounded-lg overflow-x-auto">
-                  <MathDisplay math="\mathcal{L} = \sum_{k=1}^{K}\sum_{x_i \in C_k}\|x_i - \mu_k\|^2" />
+                  <MathDisplay latex="\mathcal{L} = \sum_{k=1}^{K}\sum_{x_i \in C_k}\|x_i - \mu_k\|^2" />
                 </div>
               ) : (
                 <div className="space-y-4 text-secondary">
                   <p>
-                    <MathInline math="\mu_k" /> is the centroid of cluster k. We minimize the total squared distance from each point to its nearest centroid.
+                    <MathInline latex="\mu_k" /> is the centroid of cluster k. We minimize the total squared distance from each point to its nearest centroid.
                   </p>
                 </div>
               )}
@@ -232,7 +232,7 @@ export default function TrainingTheory({
         <Section id="C" title="Gradient Descent">
           <div className="space-y-6">
             <div className="bg-black/30 p-4 rounded-lg overflow-x-auto">
-              <MathDisplay math="\theta_{\text{new}} = \theta_{\text{old}} - \alpha \nabla_{\theta} \mathcal{L}(\theta)" />
+              <MathDisplay latex="\theta_{\text{new}} = \theta_{\text{old}} - \alpha \nabla_{\theta} \mathcal{L}(\theta)" />
             </div>
 
             <div className="overflow-x-auto">
@@ -246,19 +246,19 @@ export default function TrainingTheory({
                 <tbody className="text-sm">
                   <tr className="border-b border-default">
                     <td className="py-2 px-4 font-mono">
-                      <MathInline math="\theta" />
+                      <MathInline latex="\theta" />
                     </td>
                     <td className="py-2 px-4">Current parameters</td>
                   </tr>
                   <tr className="border-b border-default">
                     <td className="py-2 px-4 font-mono">
-                      <MathInline math="\alpha" />
+                      <MathInline latex="\alpha" />
                     </td>
                     <td className="py-2 px-4">Learning rate (step size)</td>
                   </tr>
                   <tr className="border-b border-default">
                     <td className="py-2 px-4 font-mono">
-                      <MathInline math="\nabla_{\theta}\mathcal{L}" />
+                      <MathInline latex="\nabla_{\theta}\mathcal{L}" />
                     </td>
                     <td className="py-2 px-4">Gradient of loss w.r.t. parameters</td>
                   </tr>
@@ -285,7 +285,7 @@ export default function TrainingTheory({
                   <Fragment key={idx}>
                     <div className="bg-surface-secondary px-3 py-2 rounded-md border border-default">
                       <span className="text-brand font-mono mr-2">{idx + 1}.</span>
-                      {step.includes('\\') ? <MathInline math={step} /> : step}
+                      {step.includes('\\') ? <MathInline latex={step} /> : step}
                     </div>
                     {idx < arr.length - 1 && <ChevronRight className="w-4 h-4 text-muted" />}
                   </Fragment>
