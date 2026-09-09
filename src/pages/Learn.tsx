@@ -56,16 +56,16 @@ export default function Learn() {
   return (
     <div className="mx-auto max-w-5xl px-5 py-14">
       <Eyebrow>Learn ML</Eyebrow>
-      <h1 className="font-display text-4xl font-semibold text-paper">Your ML journey</h1>
-      <p className="mt-2 max-w-2xl text-graphite-500">
+      <h1 className="font-display text-4xl font-semibold text-brand">Your ML journey</h1>
+      <p className="mt-2 max-w-2xl text-muted">
         Six short modules. Check each one off as you go — your progress is saved on this device.
       </p>
 
       <div className="mt-6">
-        <div className="h-2 w-full overflow-hidden rounded-full bg-graphite-700">
+        <div className="h-2 w-full overflow-hidden rounded-full bg-surface-secondary">
           <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${progressPct}%` }} />
         </div>
-        <p className="mt-2 font-mono text-xs text-graphite-500">{progressPct}% complete</p>
+        <p className="mt-2 font-mono text-xs text-muted">{progressPct}% complete</p>
       </div>
 
       {/* Module 1 */}
@@ -76,7 +76,7 @@ export default function Learn() {
         completed={completed.includes('what-is-ml')}
         onToggle={toggleComplete}
       >
-        <p className="text-graphite-500">
+        <p className="text-muted">
           Traditional programming and machine learning flip the same three ingredients around:
         </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -101,31 +101,31 @@ export default function Learn() {
         completed={completed.includes('dataset')}
         onToggle={toggleComplete}
       >
-        <p className="text-graphite-500">
-          Each <strong className="text-paper">row</strong> is a sample. Each column except the last is a{' '}
-          <strong className="text-paper">feature</strong> — something the model can look at. The last
-          column is the <strong className="text-paper">label</strong> — what the model is trying to predict.
+        <p className="text-muted">
+          Each <strong className="text-brand">row</strong> is a sample. Each column except the last is a{' '}
+          <strong className="text-brand">feature</strong> — something the model can look at. The last
+          column is the <strong className="text-brand">label</strong> — what the model is trying to predict.
         </p>
-        <div className="mt-4 overflow-x-auto rounded-xl border border-graphite-600/60">
+        <div className="mt-4 overflow-x-auto rounded-xl border border-default">
           <table className="w-full text-left font-mono text-sm">
-            <thead className="bg-graphite-800/80 text-graphite-500">
+            <thead className="bg-surface-secondary/80 text-muted">
               <tr>
                 <th className="px-3 py-2 font-normal">Height</th>
                 <th className="px-3 py-2 font-normal">Weight</th>
                 <th className="px-3 py-2 font-normal">Exercise</th>
-                <th className="px-3 py-2 font-normal text-primary">Category (label)</th>
+                <th className="px-3 py-2 font-normal text-brand">Category (label)</th>
                 <th className="px-3 py-2" />
               </tr>
             </thead>
             <tbody>
               {rows.map((row, i) => (
-                <tr key={i} className="border-t border-graphite-700/70">
+                <tr key={i} className="border-t border-default/70">
                   <td className="px-2 py-1.5">
                     <input
                       type="number"
                       value={row.height}
                       onChange={(e) => updateRow(i, { height: Number(e.target.value) })}
-                      className="w-16 rounded bg-graphite-800 px-2 py-1 text-paper outline-none focus-visible:outline-primary"
+                      className="w-16 rounded bg-surface-secondary px-2 py-1 text-brand outline-none focus-visible:outline-primary"
                     />
                   </td>
                   <td className="px-2 py-1.5">
@@ -133,14 +133,14 @@ export default function Learn() {
                       type="number"
                       value={row.weight}
                       onChange={(e) => updateRow(i, { weight: Number(e.target.value) })}
-                      className="w-16 rounded bg-graphite-800 px-2 py-1 text-paper outline-none focus-visible:outline-primary"
+                      className="w-16 rounded bg-surface-secondary px-2 py-1 text-brand outline-none focus-visible:outline-primary"
                     />
                   </td>
                   <td className="px-2 py-1.5">
                     <select
                       value={row.exercise}
                       onChange={(e) => updateRow(i, { exercise: e.target.value as Row['exercise'] })}
-                      className="rounded bg-graphite-800 px-2 py-1 text-paper outline-none focus-visible:outline-primary"
+                      className="rounded bg-surface-secondary px-2 py-1 text-brand outline-none focus-visible:outline-primary"
                     >
                       <option>High</option>
                       <option>Low</option>
@@ -150,7 +150,7 @@ export default function Learn() {
                     <select
                       value={row.category}
                       onChange={(e) => updateRow(i, { category: e.target.value as Row['category'] })}
-                      className="rounded bg-graphite-800 px-2 py-1 text-primary outline-none focus-visible:outline-primary"
+                      className="rounded bg-surface-secondary px-2 py-1 text-brand outline-none focus-visible:outline-primary"
                     >
                       <option>Fit</option>
                       <option>Unfit</option>
@@ -160,7 +160,7 @@ export default function Learn() {
                     <button
                       onClick={() => removeRow(i)}
                       aria-label="Remove row"
-                      className="rounded p-1.5 text-graphite-500 hover:text-rose"
+                      className="rounded p-1.5 text-muted hover:text-error"
                     >
                       <Trash2 className="h-4 w-4" />
                     </button>
@@ -183,9 +183,9 @@ export default function Learn() {
         completed={completed.includes('train-test-split')}
         onToggle={toggleComplete}
       >
-        <p className="text-graphite-500">
+        <p className="text-muted">
           We never judge a model on the data it studied from. Some samples are held back as a{' '}
-          <strong className="text-paper">test set</strong> the model never sees during training —
+          <strong className="text-brand">test set</strong> the model never sees during training —
           that's the only fair way to check if it actually learned, instead of just memorizing.
         </p>
         <div className="mt-4">
@@ -200,16 +200,16 @@ export default function Learn() {
           />
         </div>
         <div className="mt-4 grid grid-cols-2 gap-3">
-          <div className="rounded-xl border border-primary/30 bg-primary/5 p-4 text-center">
-            <p className="font-mono text-xs text-graphite-500">Training</p>
-            <p className="font-display text-2xl font-semibold text-primary">{trainCount} samples</p>
+          <div className="rounded-xl border border-brand/30 bg-brand/5 p-4 text-center">
+            <p className="font-mono text-xs text-muted">Training</p>
+            <p className="font-display text-2xl font-semibold text-brand">{trainCount} samples</p>
           </div>
           <div className="rounded-xl border border-rose/30 bg-rose/5 p-4 text-center">
-            <p className="font-mono text-xs text-graphite-500">Testing</p>
-            <p className="font-display text-2xl font-semibold text-rose">{testCount} samples</p>
+            <p className="font-mono text-xs text-muted">Testing</p>
+            <p className="font-display text-2xl font-semibold text-error">{testCount} samples</p>
           </div>
         </div>
-        <div className="mt-3 flex h-8 w-full overflow-hidden rounded-full border border-graphite-600">
+        <div className="mt-3 flex h-8 w-full overflow-hidden rounded-full border border-default">
           <div className="bg-primary/70 transition-all" style={{ width: `${trainPct}%` }} />
           <div className="flex-1 bg-rose/70 transition-all" />
         </div>
@@ -223,8 +223,8 @@ export default function Learn() {
         completed={completed.includes('classification')}
         onToggle={toggleComplete}
       >
-        <p className="text-graphite-500">
-          Classification predicts a <strong className="text-paper">category</strong> — fit or unfit,
+        <p className="text-muted">
+          Classification predicts a <strong className="text-brand">category</strong> — fit or unfit,
           spam or not spam. The model draws an invisible boundary through feature space; anything
           on one side gets one label, the other side gets the other.
         </p>
@@ -238,11 +238,11 @@ export default function Learn() {
         completed={completed.includes('regression')}
         onToggle={toggleComplete}
       >
-        <p className="text-graphite-500">
-          Regression predicts a <strong className="text-paper">number</strong> — a price, a
+        <p className="text-muted">
+          Regression predicts a <strong className="text-brand">number</strong> — a price, a
           temperature, a score. Linear regression fits a straight line by nudging its slope and
           intercept, step by step, until the error stops shrinking. That process is called{' '}
-          <strong className="text-paper">gradient descent</strong>.
+          <strong className="text-brand">gradient descent</strong>.
         </p>
         <PlaygroundLink to="/playground" label="Watch gradient descent fit a line in real time" />
       </ModuleShell>
@@ -254,8 +254,8 @@ export default function Learn() {
         completed={completed.includes('clustering')}
         onToggle={toggleComplete}
       >
-        <p className="text-graphite-500">
-          Clustering finds groups in data that has <strong className="text-paper">no labels at
+        <p className="text-muted">
+          Clustering finds groups in data that has <strong className="text-brand">no labels at
           all</strong>. K-Means repeats a simple loop — assign points to the nearest centroid, then
           move the centroid to the middle of its points — until nothing moves anymore.
         </p>
@@ -290,13 +290,13 @@ function ModuleShell({
     <Panel className="mt-6">
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-baseline gap-3">
-          <span className="font-mono text-xs text-graphite-500">Module {index}</span>
-          <h2 className="font-display text-xl font-semibold text-paper">{title}</h2>
+          <span className="font-mono text-xs text-muted">Module {index}</span>
+          <h2 className="font-display text-xl font-semibold text-brand">{title}</h2>
         </div>
         <button
           onClick={() => onToggle(id)}
           className={`flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-xs transition ${
-            completed ? 'border-primary bg-primary/10 text-primary' : 'border-graphite-600 text-graphite-500 hover:text-paper'
+            completed ? 'border-primary bg-brand/10 text-brand' : 'border-default text-muted hover:text-brand'
           }`}
         >
           {completed ? <Check className="h-3.5 w-3.5" /> : <Circle className="h-3.5 w-3.5" />}
@@ -310,11 +310,11 @@ function ModuleShell({
 
 function FlowCard({ title, steps, accent }: { title: string; steps: string[]; accent?: boolean }) {
   return (
-    <div className={`rounded-xl border p-4 ${accent ? 'border-primary/30 bg-primary/5' : 'border-graphite-600 bg-graphite-900/50'}`}>
-      <p className="font-mono text-[11px] uppercase tracking-wide text-graphite-500">{title}</p>
-      <div className="mt-2 flex flex-wrap items-center gap-2 font-mono text-sm text-paper">
+    <div className={`rounded-xl border p-4 ${accent ? 'border-brand/30 bg-brand/5' : 'border-default bg-background/50'}`}>
+      <p className="font-mono text-[11px] uppercase tracking-wide text-muted">{title}</p>
+      <div className="mt-2 flex flex-wrap items-center gap-2 font-mono text-sm text-brand">
         {steps.map((s, i) => (
-          <span key={i} className={i === steps.length - 1 ? 'text-primary' : ''}>
+          <span key={i} className={i === steps.length - 1 ? 'text-brand' : ''}>
             {s}
           </span>
         ))}
@@ -325,7 +325,7 @@ function FlowCard({ title, steps, accent }: { title: string; steps: string[]; ac
 
 function PlaygroundLink({ to, label }: { to: string; label: string }) {
   return (
-    <Link to={to} className="inline-flex items-center gap-1.5 font-mono text-sm text-primary hover:underline">
+    <Link to={to} className="inline-flex items-center gap-1.5 font-mono text-sm text-brand hover:underline">
       {label} <ArrowRight className="h-3.5 w-3.5" />
     </Link>
   )

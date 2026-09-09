@@ -3,8 +3,9 @@ import { Eyebrow, SegmentedControl } from '../components/ui'
 import ClassifyMode from '../components/playground/ClassifyMode'
 import RegressMode from '../components/playground/RegressMode'
 import ClusterMode from '../components/playground/ClusterMode'
+import TrainingTheory from '../components/playground/TrainingTheory'
 
-type Mode = 'classify' | 'regress' | 'cluster'
+type Mode = 'classify' | 'regress' | 'cluster' | 'theory'
 
 export default function Playground() {
   const [mode, setMode] = useState<Mode>('classify')
@@ -14,10 +15,11 @@ export default function Playground() {
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
           <Eyebrow>Interactive playground</Eyebrow>
-          <h1 className="font-display text-3xl font-semibold text-paper">
-            {mode === 'classify' && 'Classification lab'}
-            {mode === 'regress' && 'Regression lab'}
-            {mode === 'cluster' && 'Clustering lab'}
+          <h1 className="font-display text-3xl font-semibold text-brand">
+            {mode === 'classify' && 'Classification Lab'}
+            {mode === 'regress' && 'Regression Lab'}
+            {mode === 'cluster' && 'Clustering Lab'}
+            {mode === 'theory' && 'Training Theory'}
           </h1>
         </div>
         <SegmentedControl
@@ -27,6 +29,7 @@ export default function Playground() {
             { id: 'classify', label: 'Classify' },
             { id: 'regress', label: 'Regress' },
             { id: 'cluster', label: 'Cluster' },
+            { id: 'theory', label: 'Theory' },
           ]}
         />
       </div>
@@ -34,6 +37,15 @@ export default function Playground() {
       {mode === 'classify' && <ClassifyMode />}
       {mode === 'regress' && <RegressMode />}
       {mode === 'cluster' && <ClusterMode />}
+      {mode === 'theory' && (
+        <div className="max-w-3xl mx-auto">
+          <p className="mb-6 text-muted text-sm leading-relaxed">
+            An educational guide to how machine learning models are trained — covering prediction, loss
+            functions, gradient descent, and how to diagnose underfitting and overfitting.
+          </p>
+          <TrainingTheory mode="regression" modelName="Linear Regression" />
+        </div>
+      )}
     </div>
   )
 }

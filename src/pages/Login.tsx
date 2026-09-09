@@ -40,41 +40,41 @@ export default function Login() {
       <Panel className="w-full max-w-md p-8">
         <div className="mb-8 text-center">
           <Eyebrow>Welcome Back</Eyebrow>
-          <h1 className="mt-2 font-display text-3xl font-semibold text-paper">Student Login</h1>
-          <p className="mt-2 text-sm text-graphite-500">
+          <h1 className="mt-2 font-display text-3xl font-semibold text-brand">Student Login</h1>
+          <p className="mt-2 text-sm text-muted">
             Please use your Roll Number as both your Username and Password to access the ML Lab.
           </p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="mb-1.5 block text-sm font-medium text-graphite-500">
+            <label className="mb-1.5 block text-sm font-medium text-muted">
               Roll Number (Username)
             </label>
             <input
               type="text"
               value={rollNumber}
               onChange={(e) => setRollNumber(e.target.value)}
-              className="w-full rounded-xl border border-graphite-600 bg-graphite-900/50 px-4 py-2.5 text-paper outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+              className="w-full rounded-xl border border-default bg-background/50 px-4 py-2.5 text-brand outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
               placeholder="e.g. 21A91A0501"
             />
           </div>
 
           <div>
-            <label className="mb-1.5 block text-sm font-medium text-graphite-500">
+            <label className="mb-1.5 block text-sm font-medium text-muted">
               Password
             </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-xl border border-graphite-600 bg-graphite-900/50 px-4 py-2.5 text-paper outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+              className="w-full rounded-xl border border-default bg-background/50 px-4 py-2.5 text-brand outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
               placeholder="Must match Roll Number"
             />
           </div>
 
           {error && (
-            <p className="text-sm text-rose">{error}</p>
+            <p className="text-sm text-error">{error}</p>
           )}
 
           <button type="submit" className="btn-primary mt-6 w-full justify-center">

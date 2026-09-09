@@ -40,8 +40,8 @@ export default function Compare() {
   return (
     <div className="mx-auto max-w-[1400px] px-5 py-10">
       <Eyebrow>Compare models</Eyebrow>
-      <h1 className="font-display text-3xl font-semibold text-paper">Same data, different algorithms</h1>
-      <p className="mt-2 max-w-2xl text-graphite-500">
+      <h1 className="font-display text-3xl font-semibold text-brand">Same data, different algorithms</h1>
+      <p className="mt-2 max-w-2xl text-muted">
         Every model below is trained live on the exact same dataset and the exact same train/test
         split — the only thing that changes is the algorithm.
       </p>
@@ -58,8 +58,8 @@ export default function Compare() {
                   title={d.blurb}
                   className={`rounded-lg border px-2 py-1.5 font-mono text-[11px] transition ${
                     datasetKind === d.id
-                      ? 'border-primary bg-primary/10 text-primary'
-                      : 'border-graphite-600 text-graphite-500 hover:text-paper'
+                      ? 'border-primary bg-brand/10 text-brand'
+                      : 'border-default text-muted hover:text-brand'
                   }`}
                 >
                   {d.label}
@@ -89,7 +89,7 @@ export default function Compare() {
               {ALL_ALGOS.map((id) => (
                 <label
                   key={id}
-                  className="flex cursor-pointer items-center gap-2 rounded-lg border border-graphite-600 px-3 py-2 font-mono text-xs text-graphite-500 has-[:checked]:border-primary has-[:checked]:text-primary"
+                  className="flex cursor-pointer items-center gap-2 rounded-lg border border-default px-3 py-2 font-mono text-xs text-muted has-[:checked]:border-primary has-[:checked]:text-brand"
                 >
                   <input
                     type="checkbox"
@@ -109,8 +109,8 @@ export default function Compare() {
             {results.map(({ algo, model, metrics }) => (
               <Panel key={algo} className="!p-3">
                 <div className="mb-2 flex items-center justify-between px-1">
-                  <span className="font-mono text-xs text-paper">{ALGO_META[algo].short}</span>
-                  <span className="font-mono text-xs text-primary">{(metrics.accuracy * 100).toFixed(1)}%</span>
+                  <span className="font-mono text-xs text-brand">{ALGO_META[algo].short}</span>
+                  <span className="font-mono text-xs text-brand">{(metrics.accuracy * 100).toFixed(1)}%</span>
                 </div>
                 <Plot points={train} predict={model.predict} showBoundary height={220} resolution={32} ariaLabel={`${ALGO_META[algo].label} decision boundary`} />
               </Panel>
@@ -120,7 +120,7 @@ export default function Compare() {
           <Panel className="overflow-x-auto">
             <Eyebrow>Metrics</Eyebrow>
             <table className="w-full min-w-[560px] text-left font-mono text-xs">
-              <thead className="text-graphite-500">
+              <thead className="text-muted">
                 <tr>
                   <th className="px-2 py-2 font-normal">Algorithm</th>
                   <th className="px-2 py-2 font-normal text-right">Accuracy</th>
@@ -133,14 +133,14 @@ export default function Compare() {
               </thead>
               <tbody>
                 {results.map(({ algo, metrics }) => (
-                  <tr key={algo} className="border-t border-graphite-700/70">
-                    <td className="px-2 py-2 text-paper">{ALGO_META[algo].label}</td>
-                    <td className="px-2 py-2 text-right text-primary">{(metrics.accuracy * 100).toFixed(1)}%</td>
-                    <td className="px-2 py-2 text-right text-graphite-500">{metrics.precision.toFixed(2)}</td>
-                    <td className="px-2 py-2 text-right text-graphite-500">{metrics.recall.toFixed(2)}</td>
-                    <td className="px-2 py-2 text-right text-graphite-500">{metrics.f1.toFixed(2)}</td>
-                    <td className="px-2 py-2 text-graphite-500">{ALGO_META[algo].complexity}</td>
-                    <td className="px-2 py-2 text-graphite-500">{ALGO_META[algo].bestFor}</td>
+                  <tr key={algo} className="border-t border-default/70">
+                    <td className="px-2 py-2 text-brand">{ALGO_META[algo].label}</td>
+                    <td className="px-2 py-2 text-right text-brand">{(metrics.accuracy * 100).toFixed(1)}%</td>
+                    <td className="px-2 py-2 text-right text-muted">{metrics.precision.toFixed(2)}</td>
+                    <td className="px-2 py-2 text-right text-muted">{metrics.recall.toFixed(2)}</td>
+                    <td className="px-2 py-2 text-right text-muted">{metrics.f1.toFixed(2)}</td>
+                    <td className="px-2 py-2 text-muted">{ALGO_META[algo].complexity}</td>
+                    <td className="px-2 py-2 text-muted">{ALGO_META[algo].bestFor}</td>
                   </tr>
                 ))}
               </tbody>

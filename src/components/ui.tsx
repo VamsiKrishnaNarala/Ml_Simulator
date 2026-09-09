@@ -28,8 +28,8 @@ export function SliderControl({
   return (
     <div>
       <div className="mb-1.5 flex items-center justify-between">
-        <label className="font-mono text-xs text-graphite-500">{label}</label>
-        <span className="font-mono text-xs text-primary">{formatValue ? formatValue(value) : value}</span>
+        <label className="font-mono text-xs text-muted">{label}</label>
+        <span className="font-mono text-xs text-brand">{formatValue ? formatValue(value) : value}</span>
       </div>
       <input
         type="range"
@@ -62,10 +62,10 @@ export function SegmentedControl<T extends string>({
           role="radio"
           aria-checked={value === opt.id}
           onClick={() => onChange(opt.id)}
-          className={`rounded-full border px-3 py-1.5 font-mono text-xs transition ${
+          className={`rounded-full border px-3 py-1.5 font-mono text-xs transition-colors ${
             value === opt.id
-              ? 'border-primary bg-primary/10 text-primary'
-              : 'border-graphite-600 text-graphite-500 hover:text-paper'
+              ? 'border-brand bg-brand/10 text-brand'
+              : 'border-default text-muted hover:text-primary'
           }`}
         >
           {opt.label}
@@ -77,17 +77,17 @@ export function SegmentedControl<T extends string>({
 
 export function StatCard({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
-    <div className="rounded-xl border border-graphite-600/60 bg-graphite-900/60 p-3.5">
-      <p className="font-mono text-[10px] uppercase tracking-wider text-graphite-500">{label}</p>
-      <p className="mt-1 font-display text-2xl font-semibold text-paper">{value}</p>
-      {hint && <p className="mt-0.5 text-xs text-graphite-500">{hint}</p>}
+    <div className="rounded-xl border border-default bg-surface-secondary p-3.5">
+      <p className="font-mono text-[10px] uppercase tracking-wider text-muted">{label}</p>
+      <p className="mt-1 font-display text-2xl font-semibold text-primary">{value}</p>
+      {hint && <p className="mt-0.5 text-xs text-muted">{hint}</p>}
     </div>
   )
 }
 
-export function InsightBox({ children }: { children: ReactNode }) {
+export function InsightBox({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className="rounded-xl border border-primary/25 bg-primary/5 p-4 text-sm leading-relaxed text-paper/90">
+    <div className={`rounded-xl border border-brand/20 bg-gradient-to-br from-brand-light/50 to-secondary-light/50 p-4 text-sm leading-relaxed text-primary ${className}`}>
       {children}
     </div>
   )

@@ -4,6 +4,7 @@ import Plot from '../Plot'
 import { Panel, Eyebrow, SliderControl, StatCard, InsightBox } from '../ui'
 import { generateDataset } from '../../datasets/generators'
 import { initCentroids, kmeansStep, type Centroid } from '../../algorithms/kmeans'
+import { computeAllClusterMetrics, CLUSTER_METRIC_META } from '../../utils/clusterMetrics'
 import type { Point2D } from '../../types'
 
 const CENTROID_COLORS = ['#5B8DEF', '#FF6B7A', '#F5A623', '#5EEAD4', '#C084FC']
@@ -66,15 +67,6 @@ export default function ClusterMode() {
 
   const coloredPoints: Point2D[] = rawPoints.map((p, i) => ({ ...p, label: assignments[i] ?? 0 }))
 
-  const inertia = useMemo(() => {
-    let sum = 0
-    rawPoints.forEach((p, i) => {
-      const c = centroids[assignments[i]]
-      if (c) sum += (p.x - c.x) ** 2 + (p.y - c.y) ** 2
-    })
-    return sum
-  }, [rawPoints, centroids, assignments])
-
   function handleCentroidDrag(index: number, x: number, y: number) {
     setCentroids((cs) => cs.map((c, i) => (i === index ? { x, y } : c)))
     const newAssignments = rawPoints.map((p) => {
@@ -94,8 +86,21 @@ export default function ClusterMode() {
     setConverged(false)
   }
 
+  const metrics = useMemo(() => {
+    if (assignments.length === 0 || centroids.length === 0) return null;
+    return computeAllClusterMetrics(rawPoints, assignments, centroids);
+  }, [rawPoints, assignments, centroids]);
+
+  function getSilhouetteInterpretation(score: number | null) {
+    if (score === null) return "Requires at least 2 non-empty clusters.";
+    if (score > 0.7) return "Excellent cluster separation — clusters are well-defined.";
+    if (score > 0.5) return "Good cluster separation.";
+    if (score > 0.25) return "Weak cluster structure — clusters may overlap.";
+    return "Poor clustering — try different K or dataset.";
+  }
+
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[300px_1fr_280px]">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[300px_1fr_300px]">
       <div className="space-y-4">
         <Panel>
           <Eyebrow>Dataset</Eyebrow>
@@ -152,6 +157,12 @@ export default function ClusterMode() {
             ? 'Converged — centroids stopped moving because every point is now closest to its own cluster center.'
             : `Iteration ${iteration}: points were reassigned to their nearest centroid, then each centroid moved to the average of its points.`}
         </InsightBox>
+        <Panel>
+          <p className="text-xs leading-relaxed text-graphite-500">
+            <strong className="text-paper">K-Means is unsupervised</strong> — it never sees a label. It only
+            uses the x/y position of each point to decide which group it belongs to.
+          </p>
+        </Panel>
       </div>
 
       <div className="space-y-4">
@@ -161,16 +172,80 @@ export default function ClusterMode() {
             <StatCard label="Iteration" value={`${iteration}`} />
             <StatCard label="Status" value={converged ? 'Converged' : 'Running'} />
           </div>
-          <div className="mt-2.5">
-            <StatCard label="Inertia (total spread)" value={inertia.toFixed(1)} hint="lower is tighter clusters" />
-          </div>
         </Panel>
-        <Panel>
-          <p className="text-xs leading-relaxed text-graphite-500">
-            <strong className="text-paper">K-Means is unsupervised</strong> — it never sees a label. It only
-            uses the x/y position of each point to decide which group it belongs to.
-          </p>
-        </Panel>
+
+        {metrics && (
+          <Panel>
+            <Eyebrow>Metrics</Eyebrow>
+            <div className="space-y-4">
+              {CLUSTER_METRIC_META.map(meta => {
+                let value = null;
+                if (meta.key === 'silhouette') value = metrics.silhouette;
+                else if (meta.key === 'daviesBouldin') value = metrics.daviesBouldin;
+                else if (meta.key === 'calinskiHarabasz') value = metrics.calinskiHarabasz;
+                else if (meta.key === 'inertia') value = metrics.inertia;
+
+                return (
+                  <div key={meta.key} className="space-y-1.5 border-b border-graphite-600/60 pb-3 last:border-0 last:pb-0">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm font-medium text-paper">{meta.name}</span>
+                      {value === null ? (
+                        <span className="text-sm text-graphite-500">Not available</span>
+                      ) : (
+                        <span className="text-sm font-mono text-paper">
+                          {meta.key === 'inertia' ? value.toFixed(1) : value.toFixed(3)}
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      {meta.direction === 'higher' ? (
+                        <span className="px-1.5 py-0.5 rounded text-[10px] font-medium text-emerald-400 bg-emerald-400/10">↑ Higher is better</span>
+                      ) : meta.direction === 'lower' ? (
+                        <span className="px-1.5 py-0.5 rounded text-[10px] font-medium text-blue-400 bg-blue-400/10">↓ Lower is better</span>
+                      ) : (
+                        <span className="px-1.5 py-0.5 rounded text-[10px] font-medium text-graphite-500 bg-graphite-500/10">Context</span>
+                      )}
+                    </div>
+                    <p className="text-xs text-graphite-500" title={meta.description}>{meta.description}</p>
+                  </div>
+                )
+              })}
+
+              {metrics.isSampled && (
+                <p className="text-[11px] text-amber-400 bg-amber-400/10 p-2 rounded">
+                  Note: Silhouette computed on {metrics.sampleSize || 500}-point sample for performance.
+                </p>
+              )}
+
+              <div className="bg-graphite-900/60 p-2.5 rounded border border-graphite-600/60">
+                <p className="text-xs font-medium text-paper mb-1">Analysis</p>
+                <p className="text-[11px] text-graphite-500">{getSilhouetteInterpretation(metrics.silhouette)}</p>
+              </div>
+            </div>
+          </Panel>
+        )}
+
+        {metrics && metrics.clusterDistribution && metrics.clusterDistribution.length > 0 && (
+          <Panel>
+            <Eyebrow>Distribution</Eyebrow>
+            <div className="space-y-3">
+              {metrics.clusterDistribution.map((info) => (
+                <div key={info.id} className="space-y-1">
+                  <div className="flex justify-between text-[11px] text-graphite-500">
+                    <span>Cluster {info.id}</span>
+                    <span>{info.size} pts ({info.percentage.toFixed(1)}%)</span>
+                  </div>
+                  <div className="h-2 w-full bg-graphite-900/60 rounded-full overflow-hidden border border-graphite-600/60">
+                    <div 
+                      className="h-full rounded-full transition-all duration-300" 
+                      style={{ width: `${info.percentage}%`, backgroundColor: CENTROID_COLORS[info.id % CENTROID_COLORS.length] }} 
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Panel>
+        )}
       </div>
     </div>
   )

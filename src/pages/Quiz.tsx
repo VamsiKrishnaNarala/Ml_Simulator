@@ -184,10 +184,10 @@ export default function Quiz() {
     return (
       <div className="mx-auto max-w-xl px-5 py-20 text-center">
         <Trophy className="mx-auto h-10 w-10 text-amber" />
-        <h1 className="mt-4 font-display text-3xl font-semibold text-paper">
+        <h1 className="mt-4 font-display text-3xl font-semibold text-brand">
           {correctCount} / {currentQuestions.length} correct
         </h1>
-        <p className="mt-2 text-graphite-500">Your best score on this device: {bestScore} / {currentQuestions.length}</p>
+        <p className="mt-2 text-muted">Your best score on this device: {bestScore} / {currentQuestions.length}</p>
         <button onClick={restart} className="btn-primary mt-6">
           <RotateCcw className="h-4 w-4" /> Try another set
         </button>
@@ -199,17 +199,17 @@ export default function Quiz() {
     <div className="mx-auto max-w-2xl px-5 py-14">
       <Eyebrow>Quiz</Eyebrow>
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="font-display text-3xl font-semibold text-paper">Test yourself</h1>
-        <span className="font-mono text-xs text-graphite-500">
+        <h1 className="font-display text-3xl font-semibold text-brand">Test yourself</h1>
+        <span className="font-mono text-xs text-muted">
           {index + 1} / {currentQuestions.length}
         </span>
       </div>
-      <div className="mb-6 h-1.5 w-full overflow-hidden rounded-full bg-graphite-700">
+      <div className="mb-6 h-1.5 w-full overflow-hidden rounded-full bg-surface-secondary">
         <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${progressPct}%` }} />
       </div>
 
       <Panel>
-        <h2 className="font-display text-lg font-semibold text-paper">{question.q}</h2>
+        <h2 className="font-display text-lg font-semibold text-brand">{question.q}</h2>
         <div className="mt-4 space-y-2.5">
           {question.options.map((opt, i) => {
             const isSelected = selected === i
@@ -222,10 +222,10 @@ export default function Quiz() {
                 disabled={selected !== null}
                 className={`flex w-full items-center justify-between rounded-xl border px-4 py-3 text-left text-sm transition ${
                   showState && isCorrect
-                    ? 'border-primary bg-primary/10 text-primary'
+                    ? 'border-primary bg-brand/10 text-brand'
                     : showState && isSelected
-                    ? 'border-rose bg-rose/10 text-rose'
-                    : 'border-graphite-600 text-graphite-500 hover:border-graphite-500 hover:text-paper'
+                    ? 'border-rose bg-rose/10 text-error'
+                    : 'border-default text-muted hover:border-graphite-500 hover:text-brand'
                 }`}
               >
                 {opt}
@@ -237,8 +237,8 @@ export default function Quiz() {
         </div>
 
         {selected !== null && (
-          <div className="mt-4 rounded-xl border border-graphite-600/60 bg-graphite-900/60 p-4">
-            <p className="text-sm text-graphite-500">{question.explain}</p>
+          <div className="mt-4 rounded-xl border border-default bg-surface-secondary p-4">
+            <p className="text-sm text-muted">{question.explain}</p>
             <button onClick={next} className="btn-primary mt-4 !py-1.5 text-sm">
               {index + 1 >= currentQuestions.length ? 'See results' : 'Next question'}
             </button>

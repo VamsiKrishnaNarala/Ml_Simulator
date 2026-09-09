@@ -2,6 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* Brand (Indigo) */
+    --primary: 79 70 229;
+    --primary-hover: 67 56 202;
+    --primary-light: 238 242 255;
+    --primary-dark: 49 46 129;
+
+    /* Secondary (Cyan) */
+    --secondary: 6 182 212;
+    --secondary-hover: 8 145 178;
+    --secondary-light: 236 254 255;
+
+    /* Background */
+    --background: 248 250 252;
+    --surface: 255 255 255;
+    --surface-secondary: 241 245 249;
+    --surface-hover: 248 250 252;
+
+    /* Text */
+    --text-primary: 15 23 42;
+    --text-secondary: 71 85 105;
+    --text-muted: 148 163 184;
+
+    /* Border */
+    --border: 226 232 240;
+    --border-light: 241 245 249;
+    --border-focus: 79 70 229;
+
+    /* Status */
+    --success: 16 185 129;
+    --warning: 245 158 11;
+    --error: 239 68 68;
+    --info: 59 130 246;
+
+    /* Additional */
+    --ring: 79 70 229;
+    --shadow-color: 15 23 42;
+    --overlay: 15 23 42;
+    --disabled-bg: 241 245 249;
+    --disabled-text: 148 163 184;
+
+    /* ML Categories */
+    --supervised: 79 70 229;
+    --unsupervised: 8 145 178;
+    --semi-supervised: 124 58 237;
+    --reinforcement: 234 88 12;
+  }
+
+  .dark, [data-theme="dark"] {
+    --background: 2 6 23;
+    --surface: 15 23 42;
+    --surface-secondary: 30 41 59;
+    --surface-hover: 15 23 42;
+
+    --text-primary: 248 250 252;
+    --text-secondary: 203 213 225;
+    --text-muted: 100 116 139;
+
+    --border: 51 65 85;
+    --border-light: 30 41 59;
+    
+    --primary: 99 102 241;
+    
+    --disabled-bg: 30 41 59;
+    --disabled-text: 100 116 139;
+    --shadow-color: 2 6 23;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -16,10 +86,10 @@ html {
 }
 
 body {
-  @apply bg-graphite-900 text-paper font-body antialiased;
+  @apply bg-background text-primary font-body antialiased;
   background-image:
-    linear-gradient(rgba(37,99,235,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37,99,235,0.05) 1px, transparent 1px);
+    linear-gradient(rgba(var(--primary) / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--primary) / 0.05) 1px, transparent 1px);
   background-size: 32px 32px;
   background-attachment: fixed;
 }
@@ -50,21 +120,21 @@ body {
 }
 
 .panel {
-  @apply bg-graphite-800/70 border border-graphite-600/60 rounded-2xl backdrop-blur-sm;
+  @apply bg-surface border border-default rounded-[12px] shadow-sm;
 }
 
 .label-eyebrow {
-  @apply font-mono text-[11px] uppercase tracking-[0.18em] text-primary/70;
+  @apply font-mono text-[11px] uppercase tracking-[0.18em] text-brand/70;
 }
 
 .btn-primary {
-  @apply inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-display font-semibold text-graphite-950 transition hover:bg-primary-bright hover:shadow-glow active:scale-[0.98];
+  @apply inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 font-display font-semibold text-white transition-colors hover:bg-brand-hover active:scale-[0.98];
 }
 
 .btn-secondary {
-  @apply inline-flex items-center gap-2 rounded-full border border-graphite-500 px-5 py-2.5 font-display font-semibold text-paper transition hover:border-primary hover:text-primary active:scale-[0.98];
+  @apply inline-flex items-center gap-2 rounded-lg border border-default bg-surface px-5 py-2.5 font-display font-semibold text-primary transition-colors hover:bg-surface-hover hover:border-brand active:scale-[0.98];
 }
 
 .slider {
-  @apply w-full h-1.5 rounded-full appearance-none bg-graphite-600 accent-primary cursor-pointer;
+  @apply w-full h-1.5 rounded-full appearance-none bg-border accent-primary cursor-pointer;
 }
