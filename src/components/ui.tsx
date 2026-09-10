@@ -64,8 +64,8 @@ export function SegmentedControl<T extends string>({
           onClick={() => onChange(opt.id)}
           className={`rounded-full border px-3 py-1.5 font-mono text-xs transition-colors ${
             value === opt.id
-              ? 'border-brand bg-brand/10 text-brand'
-              : 'border-border text-muted hover:text-primary'
+              ? 'border-primary/30 bg-primary/5 text-primary'
+              : 'border-border text-secondary hover:text-primary hover:border-primary/30'
           }`}
         >
           {opt.label}
@@ -87,7 +87,7 @@ export function StatCard({ label, value, hint, className = '' }: { label: string
 
 export function InsightBox({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`rounded-xl border border-brand/20 bg-gradient-to-br from-brand-light/50 to-secondary-light/50 p-4 text-sm leading-relaxed text-primary ${className}`}>
+    <div className={`rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm leading-relaxed text-primary ${className}`}>
       {children}
     </div>
   )

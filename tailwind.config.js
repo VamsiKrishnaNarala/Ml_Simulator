@@ -5,41 +5,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Legacy colors (to be removed in Phase 4)
-        graphite: {
-          950: '#FFFFFF',
-          900: '#F8FAFC',
-          800: '#F1F5F9',
-          700: '#E2E8F0',
-          600: '#CBD5E1',
-          500: '#64748B',
-          400: '#94A3B8',
-        },
-        paper: '#0F172A',
-        primary: {
-          DEFAULT: '#2563EB',
-          bright: '#3B82F6',
-        },
-        amber: {
-          DEFAULT: '#D97706',
-        },
-        rose: {
-          DEFAULT: '#E11D48',
-        },
-        blue: {
-          class: '#5B8DEF',
-        },
-        // Semantic Token Mapping (Generic)
         brand: {
+          DEFAULT: 'rgb(var(--brand-navy) / <alpha-value>)',
+          navy: 'rgb(var(--brand-navy) / <alpha-value>)',
+          hover: 'rgb(var(--primary-hover) / <alpha-value>)',
+          light: 'rgb(var(--primary-light) / <alpha-value>)',
+        },
+        primary: {
           DEFAULT: 'rgb(var(--primary) / <alpha-value>)',
           hover: 'rgb(var(--primary-hover) / <alpha-value>)',
           light: 'rgb(var(--primary-light) / <alpha-value>)',
-          dark: 'rgb(var(--primary-dark) / <alpha-value>)',
         },
-        secondary: {
-          DEFAULT: 'rgb(var(--secondary) / <alpha-value>)',
-          hover: 'rgb(var(--secondary-hover) / <alpha-value>)',
-          light: 'rgb(var(--secondary-light) / <alpha-value>)',
+        ai: {
+          DEFAULT: 'rgb(var(--ai) / <alpha-value>)',
+          hover: 'rgb(var(--ai-hover) / <alpha-value>)',
+          light: 'rgb(var(--ai-light) / <alpha-value>)',
         },
         surface: {
           DEFAULT: 'rgb(var(--surface) / <alpha-value>)',
@@ -49,25 +29,32 @@ export default {
         background: 'rgb(var(--background) / <alpha-value>)',
         border: {
           DEFAULT: 'rgb(var(--border) / <alpha-value>)',
-          light: 'rgb(var(--border-light) / <alpha-value>)',
+          strong: 'rgb(var(--border-strong) / <alpha-value>)',
           focus: 'rgb(var(--border-focus) / <alpha-value>)',
         },
         success: 'rgb(var(--success) / <alpha-value>)',
         warning: 'rgb(var(--warning) / <alpha-value>)',
         error: 'rgb(var(--error) / <alpha-value>)',
         info: 'rgb(var(--info) / <alpha-value>)',
-        
-        // ML Categories
         supervised: 'rgb(var(--supervised) / <alpha-value>)',
         unsupervised: 'rgb(var(--unsupervised) / <alpha-value>)',
         'semi-supervised': 'rgb(var(--semi-supervised) / <alpha-value>)',
         reinforcement: 'rgb(var(--reinforcement) / <alpha-value>)',
+        chart: {
+          blue: 'rgb(var(--chart-blue) / <alpha-value>)',
+          teal: 'rgb(var(--chart-teal) / <alpha-value>)',
+          purple: 'rgb(var(--chart-purple) / <alpha-value>)',
+          orange: 'rgb(var(--chart-orange) / <alpha-value>)',
+          red: 'rgb(var(--chart-red) / <alpha-value>)',
+          grid: 'rgb(var(--chart-grid) / <alpha-value>)',
+          axes: 'rgb(var(--chart-axes) / <alpha-value>)',
+        },
       },
       textColor: {
         primary: 'rgb(var(--text-primary) / <alpha-value>)',
         secondary: 'rgb(var(--text-secondary) / <alpha-value>)',
         muted: 'rgb(var(--text-muted) / <alpha-value>)',
-        brand: 'rgb(var(--primary) / <alpha-value>)',
+        brand: 'rgb(var(--brand-navy) / <alpha-value>)',
         success: 'rgb(var(--success) / <alpha-value>)',
         warning: 'rgb(var(--warning) / <alpha-value>)',
         error: 'rgb(var(--error) / <alpha-value>)',
@@ -79,7 +66,7 @@ export default {
         'surface-secondary': 'rgb(var(--surface-secondary) / <alpha-value>)',
         border: 'rgb(var(--border) / <alpha-value>)',
         primary: 'rgb(var(--primary) / <alpha-value>)',
-        secondary: 'rgb(var(--secondary) / <alpha-value>)',
+        secondary: 'rgb(var(--ai) / <alpha-value>)',
       },
       ringColor: {
         DEFAULT: 'rgb(var(--ring) / <alpha-value>)',
@@ -96,7 +83,7 @@ export default {
         grid: '28px 28px',
       },
       boxShadow: {
-        glow: '0 0 0 1px rgba(37,99,235,0.15), 0 0 24px rgba(37,99,235,0.08)',
+        glow: '0 0 0 1px rgba(37,99,235,0.12), 0 8px 24px rgba(15,59,101,0.06)',
       },
       keyframes: {
         dash: {

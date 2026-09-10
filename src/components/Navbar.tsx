@@ -18,9 +18,9 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const { user, logout } = useAuth()
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-surface backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5">
-        <NavLink to="/" className="flex items-center gap-2 font-display text-lg font-semibold text-primary">
+        <NavLink to="/" className="flex items-center gap-2 font-display text-lg font-semibold text-brand">
           <FlaskConical className="h-5 w-5 text-brand" strokeWidth={2.25} />
           ML<span className="text-brand">Lab</span>
         </NavLink>
@@ -33,8 +33,10 @@ export default function Navbar() {
                 to={l.to}
                 end={l.to === '/'}
                 className={({ isActive }) =>
-                  `rounded-full px-3.5 py-2 font-mono text-[13px] tracking-wide transition-colors ${
-                    isActive ? 'bg-surface-secondary text-brand' : 'text-muted hover:text-primary hover:bg-surface-hover'
+                  `relative px-2.5 py-2 font-mono text-[13px] tracking-wide transition-colors ${
+                    isActive
+                      ? 'text-primary after:absolute after:inset-x-2 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-primary'
+                      : 'text-secondary hover:text-primary'
                   }`
                 }
               >
@@ -44,7 +46,7 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3 pl-4 border-l border-border/70">
-            <span className="font-mono text-[13px] text-muted">{user}</span>
+            <span className="font-mono text-[13px] text-secondary">{user}</span>
             <button
               onClick={logout}
               className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-error hover:bg-error/10 transition-colors"
@@ -74,14 +76,14 @@ export default function Navbar() {
               end={l.to === '/'}
               onClick={() => setOpen(false)}
               className={({ isActive }) =>
-                `rounded-lg px-3 py-2.5 font-mono text-sm transition-colors ${isActive ? 'bg-surface-secondary text-brand' : 'text-muted'}`
+                `rounded-lg px-3 py-2.5 font-mono text-sm transition-colors ${isActive ? 'text-primary' : 'text-secondary'}`
               }
             >
               {l.label}
             </NavLink>
           ))}
           <div className="mt-2 flex items-center justify-between border-t border-border/70 pt-3">
-            <span className="font-mono text-sm text-muted">{user}</span>
+            <span className="font-mono text-sm text-secondary">{user}</span>
             <button
               onClick={() => {
                 logout()
