@@ -128,11 +128,23 @@ body {
 }
 
 .btn-primary {
-  @apply inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 font-display font-semibold text-white transition-colors hover:bg-brand-hover active:scale-[0.98];
+  @apply inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 font-display font-semibold text-white transition-colors active:scale-[0.98];
+  background-color: rgb(var(--primary));
+}
+
+.btn-primary:hover {
+  background-color: rgb(var(--primary-hover));
 }
 
 .btn-secondary {
-  @apply inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-5 py-2.5 font-display font-semibold text-primary transition-colors hover:bg-surface-hover hover:border-brand active:scale-[0.98];
+  @apply inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-5 py-2.5 font-display font-semibold text-primary transition-colors active:scale-[0.98];
+  background-color: rgb(var(--surface));
+  border-color: rgb(var(--border));
+}
+
+.btn-secondary:hover {
+  background-color: rgb(var(--surface-hover));
+  border-color: rgb(var(--primary));
 }
 
 .slider {
