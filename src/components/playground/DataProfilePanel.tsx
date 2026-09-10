@@ -93,7 +93,7 @@ export const DataProfilePanel: React.FC<DataProfilePanelProps> = ({
   if (!stats) return null;
 
   return (
-    <div className="bg-surface-secondary border border-default rounded-lg p-4">
+    <div className="bg-surface-secondary border border-border rounded-lg p-4">
       <div 
         className="flex justify-between items-center cursor-pointer"
         onClick={() => setExpanded(!expanded)}
@@ -133,7 +133,7 @@ export const DataProfilePanel: React.FC<DataProfilePanelProps> = ({
 
           {/* Section 2: Feature Statistics */}
           <div>
-            <h4 className="text-muted mb-2 border-b border-default/60 pb-1">Feature Statistics</h4>
+            <h4 className="text-muted mb-2 border-b border-border/60 pb-1">Feature Statistics</h4>
             <div className="overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
@@ -146,14 +146,14 @@ export const DataProfilePanel: React.FC<DataProfilePanelProps> = ({
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-t border-default/30">
+                  <tr className="border-t border-border/30">
                     <td className="py-1">{featureNames[0] || 'x'}</td>
                     <td className="py-1">{stats.minX.toFixed(2)}</td>
                     <td className="py-1">{stats.maxX.toFixed(2)}</td>
                     <td className="py-1">{stats.meanX.toFixed(2)}</td>
                     <td className="py-1">{stats.stdX.toFixed(2)}</td>
                   </tr>
-                  <tr className="border-t border-default/30">
+                  <tr className="border-t border-border/30">
                     <td className="py-1">{featureNames[1] || 'y'}</td>
                     <td className="py-1">{stats.minY.toFixed(2)}</td>
                     <td className="py-1">{stats.maxY.toFixed(2)}</td>
@@ -168,7 +168,7 @@ export const DataProfilePanel: React.FC<DataProfilePanelProps> = ({
           {/* Section 3: Classification Analysis */}
           {mode === 'classification' && (
             <div>
-              <h4 className="text-muted mb-2 border-b border-default/60 pb-1 flex justify-between">
+              <h4 className="text-muted mb-2 border-b border-border/60 pb-1 flex justify-between">
                 <span>Class Distribution ({stats.numClasses} classes)</span>
                 <span className={stats.imbalanceColor}>{stats.imbalanceStatus}</span>
               </h4>
@@ -185,7 +185,7 @@ export const DataProfilePanel: React.FC<DataProfilePanelProps> = ({
 
           {/* Section 4: Data Quality */}
           <div>
-            <h4 className="text-muted mb-2 border-b border-default/60 pb-1">Data Quality</h4>
+            <h4 className="text-muted mb-2 border-b border-border/60 pb-1">Data Quality</h4>
             <ul className="space-y-1 list-disc list-inside">
               <li>Noise level: {(noise * 100).toFixed(0)}%</li>
               <li>No missing values (synthetic dataset)</li>
@@ -195,7 +195,7 @@ export const DataProfilePanel: React.FC<DataProfilePanelProps> = ({
 
           {/* Section 5: Suggested Preprocessing */}
           <div>
-            <h4 className="text-muted mb-2 border-b border-default/60 pb-1">Suggested Preprocessing</h4>
+            <h4 className="text-muted mb-2 border-b border-border/60 pb-1">Suggested Preprocessing</h4>
             <ul className="space-y-1">
               <li className="text-success">✓ Standardize numerical features</li>
               <li className="text-success">✓ Shuffle before training</li>

@@ -120,7 +120,7 @@ body {
 }
 
 .panel {
-  @apply bg-surface border border-default rounded-[12px] shadow-sm;
+  @apply bg-surface border border-border rounded-[12px] shadow-sm;
 }
 
 .label-eyebrow {
@@ -132,9 +132,10 @@ body {
 }
 
 .btn-secondary {
-  @apply inline-flex items-center gap-2 rounded-lg border border-default bg-surface px-5 py-2.5 font-display font-semibold text-primary transition-colors hover:bg-surface-hover hover:border-brand active:scale-[0.98];
+  @apply inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-5 py-2.5 font-display font-semibold text-primary transition-colors hover:bg-surface-hover hover:border-brand active:scale-[0.98];
 }
 
 .slider {
-  @apply w-full h-1.5 rounded-full appearance-none bg-border accent-primary cursor-pointer;
+  @apply w-full h-1.5 rounded-full appearance-none accent-primary cursor-pointer;
+  background-color: rgb(var(--border));
 }

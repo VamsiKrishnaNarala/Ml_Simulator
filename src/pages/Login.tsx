@@ -55,7 +55,7 @@ export default function Login() {
               type="text"
               value={rollNumber}
               onChange={(e) => setRollNumber(e.target.value)}
-              className="w-full rounded-xl border border-default bg-background/50 px-4 py-2.5 text-brand outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+              className="w-full rounded-xl border border-border bg-background/50 px-4 py-2.5 text-brand outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
               placeholder="e.g. 21A91A0501"
             />
           </div>
@@ -68,7 +68,7 @@ export default function Login() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-xl border border-default bg-background/50 px-4 py-2.5 text-brand outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+              className="w-full rounded-xl border border-border bg-background/50 px-4 py-2.5 text-brand outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
               placeholder="Must match Roll Number"
             />
           </div>

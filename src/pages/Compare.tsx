@@ -59,7 +59,7 @@ export default function Compare() {
                   className={`rounded-lg border px-2 py-1.5 font-mono text-[11px] transition ${
                     datasetKind === d.id
                       ? 'border-primary bg-brand/10 text-brand'
-                      : 'border-default text-muted hover:text-brand'
+                      : 'border-border text-muted hover:text-brand'
                   }`}
                 >
                   {d.label}
@@ -89,7 +89,7 @@ export default function Compare() {
               {ALL_ALGOS.map((id) => (
                 <label
                   key={id}
-                  className="flex cursor-pointer items-center gap-2 rounded-lg border border-default px-3 py-2 font-mono text-xs text-muted has-[:checked]:border-primary has-[:checked]:text-brand"
+                  className="flex cursor-pointer items-center gap-2 rounded-lg border border-border px-3 py-2 font-mono text-xs text-muted has-[:checked]:border-primary has-[:checked]:text-brand"
                 >
                   <input
                     type="checkbox"
@@ -133,7 +133,7 @@ export default function Compare() {
               </thead>
               <tbody>
                 {results.map(({ algo, metrics }) => (
-                  <tr key={algo} className="border-t border-default/70">
+                  <tr key={algo} className="border-t border-border/70">
                     <td className="px-2 py-2 text-brand">{ALGO_META[algo].label}</td>
                     <td className="px-2 py-2 text-right text-brand">{(metrics.accuracy * 100).toFixed(1)}%</td>
                     <td className="px-2 py-2 text-right text-muted">{metrics.precision.toFixed(2)}</td>

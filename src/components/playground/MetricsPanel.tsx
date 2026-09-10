@@ -34,7 +34,7 @@ export default function MetricsPanel({ title, metrics, recommendation, className
             className={`flex flex-col p-4 rounded-xl border ${
               metric.highlight 
                 ? 'bg-brand/5 border-brand/30' 
-                : 'bg-surface-secondary border-default'
+                : 'bg-surface-secondary border-border'
             }`}
           >
             <div className="flex justify-between items-start mb-2">
@@ -64,7 +64,7 @@ export default function MetricsPanel({ title, metrics, recommendation, className
       </div>
 
       {recommendation && (
-        <div className="mt-2 flex items-start gap-3 bg-surface border border-default rounded-xl p-4 text-sm text-primary shadow-sm">
+        <div className="mt-2 flex items-start gap-3 bg-surface border border-border rounded-xl p-4 text-sm text-primary shadow-sm">
           <div className="bg-brand/20 p-2 rounded-lg shrink-0 text-brand">
             <Lightbulb className="w-5 h-5" />
           </div>

@@ -61,7 +61,7 @@ export default function Feedback() {
                 name="name"
                 type="text"
                 required
-                className="w-full rounded-xl border border-default bg-background/50 px-4 py-2.5 text-brand outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                className="w-full rounded-xl border border-border bg-background/50 px-4 py-2.5 text-brand outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
                 placeholder="Enter your full name"
               />
             </div>
@@ -76,7 +76,7 @@ export default function Feedback() {
                 type="text"
                 defaultValue={user || ''}
                 readOnly
-                className="w-full rounded-xl border border-default bg-background/30 px-4 py-2.5 text-muted outline-none cursor-not-allowed"
+                className="w-full rounded-xl border border-border bg-background/30 px-4 py-2.5 text-muted outline-none cursor-not-allowed"
               />
             </div>
 
@@ -89,7 +89,7 @@ export default function Feedback() {
                 name="message"
                 required
                 rows={5}
-                className="w-full resize-y rounded-xl border border-default bg-background/50 px-4 py-2.5 text-brand outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                className="w-full resize-y rounded-xl border border-border bg-background/50 px-4 py-2.5 text-brand outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
                 placeholder="Write your feedback here..."
               ></textarea>
             </div>

@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-default/70">
+      <section className="relative overflow-hidden border-b border-border/70">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:py-28">
           <div className="flex flex-col justify-center">
             <Eyebrow>A machine learning laboratory, in your browser</Eyebrow>
@@ -58,7 +58,7 @@ export default function Home() {
 
           </div>
 
-          <div className="relative min-h-[320px] overflow-hidden rounded-2xl border border-default bg-graphite-950/50 lg:min-h-[420px]">
+          <div className="relative min-h-[320px] overflow-hidden rounded-2xl border border-border bg-graphite-950/50 lg:min-h-[420px]">
             <HeroCanvas />
             <div className="pointer-events-none absolute left-4 top-4 font-mono text-[11px] text-muted">
               live decision boundary — class A / class B
@@ -88,7 +88,7 @@ export default function Home() {
       </section>
 
       {/* How it works strip */}
-      <section className="border-t border-default/70 bg-graphite-950/40">
+      <section className="border-t border-border/70 bg-graphite-950/40">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:py-20">
           <div className="grid gap-8 sm:grid-cols-3">
             {[

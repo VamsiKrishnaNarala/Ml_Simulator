@@ -89,11 +89,11 @@ export default function LossCurve({
   const endY = losses.length > 0 ? padding + chartHeight - ((endLoss - minLoss) / (maxLoss - minLoss || 1)) * chartHeight : 0;
 
   return (
-    <div className={`flex flex-col bg-surface-secondary border border-default rounded-xl p-4 ${className}`} style={{ width: showAxes ? '100%' : width }}>
+    <div className={`flex flex-col bg-surface-secondary border border-border rounded-xl p-4 ${className}`} style={{ width: showAxes ? '100%' : width }}>
       <div className="flex justify-between items-center mb-2">
         <span className="text-sm font-semibold text-muted uppercase tracking-wider">{label}</span>
         {losses.length > 0 && (
-          <span className="text-xs font-mono text-primary bg-surface px-2 py-1 rounded border border-default/50">
+          <span className="text-xs font-mono text-primary bg-surface px-2 py-1 rounded border border-border/50">
             {endLoss.toFixed(4)}
           </span>
         )}

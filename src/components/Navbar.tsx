@@ -18,7 +18,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const { user, logout } = useAuth()
   return (
-    <header className="sticky top-0 z-50 border-b border-default/70 bg-background/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5">
         <NavLink to="/" className="flex items-center gap-2 font-display text-lg font-semibold text-primary">
           <FlaskConical className="h-5 w-5 text-brand" strokeWidth={2.25} />
@@ -43,7 +43,7 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3 pl-4 border-l border-default/70">
+          <div className="hidden lg:flex items-center gap-3 pl-4 border-l border-border/70">
             <span className="font-mono text-[13px] text-muted">{user}</span>
             <button
               onClick={logout}
@@ -66,7 +66,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 border-t border-default/70 px-5 py-3 lg:hidden">
+        <nav className="flex flex-col gap-1 border-t border-border/70 px-5 py-3 lg:hidden">
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -80,7 +80,7 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
-          <div className="mt-2 flex items-center justify-between border-t border-default/70 pt-3">
+          <div className="mt-2 flex items-center justify-between border-t border-border/70 pt-3">
             <span className="font-mono text-sm text-muted">{user}</span>
             <button
               onClick={() => {

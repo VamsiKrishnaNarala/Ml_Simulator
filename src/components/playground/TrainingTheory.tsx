@@ -43,7 +43,7 @@ export default function TrainingTheory({
   }) => {
     const isOpen = openSections[id];
     return (
-      <div className="border border-default rounded-lg bg-surface-secondary overflow-hidden mb-4">
+      <div className="border border-border rounded-lg bg-surface-secondary overflow-hidden mb-4">
         <button
           onClick={() => toggleSection(id)}
           className="w-full flex items-center justify-between p-4 hover:bg-surface-hover transition-colors"
@@ -69,7 +69,7 @@ export default function TrainingTheory({
           }`}
         >
           <div className="overflow-hidden">
-            <div className="p-4 pt-0 border-t border-default mt-2 text-primary">
+            <div className="p-4 pt-0 border-t border-border mt-2 text-primary">
               {children}
             </div>
           </div>
@@ -85,7 +85,7 @@ export default function TrainingTheory({
           <BookOpen className="w-6 h-6 text-primary" />
           Training Theory
         </h2>
-        <div className="flex bg-surface-secondary p-1 rounded-lg border border-default">
+        <div className="flex bg-surface-secondary p-1 rounded-lg border border-border">
           <button
             onClick={() => setGlobalAdvanced(false)}
             className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
@@ -125,23 +125,23 @@ export default function TrainingTheory({
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="border-b border-default">
+                    <tr className="border-b border-border">
                       <th className="py-2 px-4 font-medium text-muted">Symbol</th>
                       <th className="py-2 px-4 font-medium text-muted">Meaning</th>
                     </tr>
                   </thead>
                   <tbody className="text-sm">
-                    <tr className="border-b border-default">
+                    <tr className="border-b border-border">
                       <td className="py-2 px-4 font-mono">X</td>
                       <td className="py-2 px-4">Input features matrix</td>
                     </tr>
-                    <tr className="border-b border-default">
+                    <tr className="border-b border-border">
                       <td className="py-2 px-4 font-mono">
                         <MathInline latex="\theta" />
                       </td>
                       <td className="py-2 px-4">Model parameters (weights, biases)</td>
                     </tr>
-                    <tr className="border-b border-default">
+                    <tr className="border-b border-border">
                       <td className="py-2 px-4 font-mono">
                         <MathInline latex="\hat{y}" />
                       </td>
@@ -238,25 +238,25 @@ export default function TrainingTheory({
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-default">
+                  <tr className="border-b border-border">
                     <th className="py-2 px-4 font-medium text-muted">Symbol</th>
                     <th className="py-2 px-4 font-medium text-muted">Meaning</th>
                   </tr>
                 </thead>
                 <tbody className="text-sm">
-                  <tr className="border-b border-default">
+                  <tr className="border-b border-border">
                     <td className="py-2 px-4 font-mono">
                       <MathInline latex="\theta" />
                     </td>
                     <td className="py-2 px-4">Current parameters</td>
                   </tr>
-                  <tr className="border-b border-default">
+                  <tr className="border-b border-border">
                     <td className="py-2 px-4 font-mono">
                       <MathInline latex="\alpha" />
                     </td>
                     <td className="py-2 px-4">Learning rate (step size)</td>
                   </tr>
-                  <tr className="border-b border-default">
+                  <tr className="border-b border-border">
                     <td className="py-2 px-4 font-mono">
                       <MathInline latex="\nabla_{\theta}\mathcal{L}" />
                     </td>
@@ -283,7 +283,7 @@ export default function TrainingTheory({
                   'Stop when loss change < tolerance',
                 ].map((step, idx, arr) => (
                   <Fragment key={idx}>
-                    <div className="bg-surface-secondary px-3 py-2 rounded-md border border-default">
+                    <div className="bg-surface-secondary px-3 py-2 rounded-md border border-border">
                       <span className="text-brand font-mono mr-2">{idx + 1}.</span>
                       {step.includes('\\') ? <MathInline latex={step} /> : step}
                     </div>
@@ -304,10 +304,10 @@ export default function TrainingTheory({
 
         {/* SECTION D */}
         <Section id="D" title="Types of Gradient Descent">
-          <div className="overflow-x-auto bg-surface rounded-lg border border-default">
+          <div className="overflow-x-auto bg-surface rounded-lg border border-border">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-default bg-surface-secondary">
+                <tr className="border-b border-border bg-surface-secondary">
                   <th className="py-3 px-4 font-medium text-primary">Type</th>
                   <th className="py-3 px-4 font-medium text-muted">Data Per Update</th>
                   <th className="py-3 px-4 font-medium text-muted">Speed</th>
@@ -317,7 +317,7 @@ export default function TrainingTheory({
                 </tr>
               </thead>
               <tbody className="text-sm">
-                <tr className="border-b border-default hover:bg-surface-hover transition-colors">
+                <tr className="border-b border-border hover:bg-surface-hover transition-colors">
                   <td className="py-3 px-4 font-semibold">Batch GD</td>
                   <td className="py-3 px-4 text-secondary">Full dataset</td>
                   <td className="py-3 px-4 text-secondary">Slow</td>
@@ -325,7 +325,7 @@ export default function TrainingTheory({
                   <td className="py-3 px-4 text-error">High</td>
                   <td className="py-3 px-4 text-secondary">Small datasets, convex problems</td>
                 </tr>
-                <tr className="border-b border-default hover:bg-surface-hover transition-colors">
+                <tr className="border-b border-border hover:bg-surface-hover transition-colors">
                   <td className="py-3 px-4 font-semibold">SGD</td>
                   <td className="py-3 px-4 text-secondary">1 sample</td>
                   <td className="py-3 px-4 text-green-400">Fast</td>
@@ -350,7 +350,7 @@ export default function TrainingTheory({
         <Section id="E" title="Overfitting & Underfitting">
           <div className="space-y-6">
             {trainScore !== undefined && valScore !== undefined && (
-              <div className="bg-black/30 rounded-lg p-4 border border-default">
+              <div className="bg-black/30 rounded-lg p-4 border border-border">
                 <h4 className="font-semibold text-primary mb-4">Live Diagnostic</h4>
                 <div className="flex flex-col gap-4">
                   <div>
@@ -394,7 +394,7 @@ export default function TrainingTheory({
               <h4 className="font-semibold text-primary">Theory</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {/* Underfitting */}
-                <div className="bg-surface border border-default rounded-lg p-4 flex flex-col items-center">
+                <div className="bg-surface border border-border rounded-lg p-4 flex flex-col items-center">
                   <h5 className="font-medium text-sm text-secondary mb-4">Underfitting</h5>
                   <div className="flex items-end gap-2 h-24 mb-4 w-full justify-center border-b border-graphite-700 pb-2">
                     <div className="w-8 bg-primary/40 h-10 rounded-t-sm" title="Train Score"></div>
@@ -416,7 +416,7 @@ export default function TrainingTheory({
                 </div>
 
                 {/* Overfitting */}
-                <div className="bg-surface border border-default rounded-lg p-4 flex flex-col items-center">
+                <div className="bg-surface border border-border rounded-lg p-4 flex flex-col items-center">
                   <h5 className="font-medium text-sm text-secondary mb-4">Overfitting</h5>
                   <div className="flex items-end gap-2 h-24 mb-4 w-full justify-center border-b border-graphite-700 pb-2">
                     <div className="w-8 bg-primary h-22 rounded-t-sm" title="Train Score" style={{ height: '88px' }}></div>

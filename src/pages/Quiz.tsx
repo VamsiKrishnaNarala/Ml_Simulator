@@ -225,7 +225,7 @@ export default function Quiz() {
                     ? 'border-primary bg-brand/10 text-brand'
                     : showState && isSelected
                     ? 'border-rose bg-rose/10 text-error'
-                    : 'border-default text-muted hover:border-graphite-500 hover:text-brand'
+                    : 'border-border text-muted hover:border-graphite-500 hover:text-brand'
                 }`}
               >
                 {opt}
@@ -237,7 +237,7 @@ export default function Quiz() {
         </div>
 
         {selected !== null && (
-          <div className="mt-4 rounded-xl border border-default bg-surface-secondary p-4">
+          <div className="mt-4 rounded-xl border border-border bg-surface-secondary p-4">
             <p className="text-sm text-muted">{question.explain}</p>
             <button onClick={next} className="btn-primary mt-4 !py-1.5 text-sm">
               {index + 1 >= currentQuestions.length ? 'See results' : 'Next question'}

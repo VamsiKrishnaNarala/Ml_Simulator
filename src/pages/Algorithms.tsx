@@ -71,7 +71,7 @@ const STATUS_META: Record<
   educational: {
     label: 'Theory',
     icon: <GraduationCap className="h-3 w-3" />,
-    color: 'text-muted bg-surface-secondary border-default',
+    color: 'text-muted bg-surface-secondary border-border',
   },
 }
 
@@ -125,7 +125,7 @@ function AlgoCard({ algo }: { algo: AlgoDoc }) {
             {algo.problemType.map((pt) => (
               <span
                 key={pt}
-                className="rounded-full border border-default bg-background/40 px-2 py-0.5 font-mono text-[10px] text-muted"
+                className="rounded-full border border-border bg-background/40 px-2 py-0.5 font-mono text-[10px] text-muted"
               >
                 {pt}
               </span>
@@ -155,9 +155,9 @@ function AlgoCard({ algo }: { algo: AlgoDoc }) {
 
       {/* Expanded detail */}
       {open && (
-        <div className="border-t border-default/70">
+        <div className="border-t border-border/70">
           {/* Tab bar */}
-          <div className="flex overflow-x-auto gap-0 border-b border-default/70 px-5 pt-2">
+          <div className="flex overflow-x-auto gap-0 border-b border-border/70 px-5 pt-2">
             {DETAIL_TABS.map((tab) => (
               <button
                 key={tab.id}
@@ -200,7 +200,7 @@ function AlgoCard({ algo }: { algo: AlgoDoc }) {
                 </div>
                 <div>
                   <p className="label-eyebrow mb-2">Objective</p>
-                  <div className="rounded-lg border border-default bg-background/50 px-3 py-2.5">
+                  <div className="rounded-lg border border-border bg-background/50 px-3 py-2.5">
                     <p className="font-mono text-xs text-muted">{algo.objective}</p>
                   </div>
                 </div>
@@ -211,7 +211,7 @@ function AlgoCard({ algo }: { algo: AlgoDoc }) {
                 <div>
                   <p className="label-eyebrow mb-2">Example</p>
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="rounded-lg border border-default bg-background/40 p-3">
+                    <div className="rounded-lg border border-border bg-background/40 p-3">
                       <p className="font-mono text-[10px] text-muted uppercase tracking-wider mb-1">Input</p>
                       <p className="font-mono text-xs text-brand">{algo.exampleIO.input}</p>
                     </div>
@@ -229,7 +229,7 @@ function AlgoCard({ algo }: { algo: AlgoDoc }) {
                 {algo.equations.map((eq, i) => (
                   <div key={i} className="space-y-2">
                     <p className="label-eyebrow">{eq.label}</p>
-                    <div className="rounded-lg border border-default bg-background/50 px-4 py-3 overflow-x-auto">
+                    <div className="rounded-lg border border-border bg-background/50 px-4 py-3 overflow-x-auto">
                       <MathBlock latex={eq.latex} displayMode={true} />
                     </div>
                     <p className="text-xs text-muted leading-relaxed">{eq.explanation}</p>
@@ -237,7 +237,7 @@ function AlgoCard({ algo }: { algo: AlgoDoc }) {
                 ))}
                 <div>
                   <p className="label-eyebrow mb-2">Objective Function</p>
-                  <div className="rounded-lg border border-default bg-background/40 px-3 py-2.5">
+                  <div className="rounded-lg border border-border bg-background/40 px-3 py-2.5">
                     <p className="font-mono text-xs text-muted">{algo.objective}</p>
                   </div>
                 </div>
@@ -249,9 +249,9 @@ function AlgoCard({ algo }: { algo: AlgoDoc }) {
                 {algo.hyperparameters.length === 0 ? (
                   <p className="text-sm text-muted">No user-configurable hyperparameters.</p>
                 ) : (
-                  <div className="rounded-xl border border-default overflow-hidden">
+                  <div className="rounded-xl border border-border overflow-hidden">
                     <table className="w-full text-xs">
-                      <thead className="border-b border-default/70 bg-surface-secondary">
+                      <thead className="border-b border-border/70 bg-surface-secondary">
                         <tr>
                           <th className="text-left px-4 py-2.5 font-mono text-[10px] uppercase tracking-wider text-muted">
                             Parameter
@@ -265,7 +265,7 @@ function AlgoCard({ algo }: { algo: AlgoDoc }) {
                         {algo.hyperparameters.map((hp, i) => (
                           <tr
                             key={i}
-                            className="border-b border-default/40 last:border-0"
+                            className="border-b border-border/40 last:border-0"
                           >
                             <td className="px-4 py-2.5 font-mono text-brand">{hp.name}</td>
                             <td className="px-4 py-2.5 text-muted">{hp.role}</td>
@@ -313,7 +313,7 @@ function AlgoCard({ algo }: { algo: AlgoDoc }) {
                     {algo.useCases.map((uc, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-2 rounded-lg border border-default/40 bg-background/40 px-3 py-2 text-xs text-muted"
+                        className="flex items-start gap-2 rounded-lg border border-border/40 bg-background/40 px-3 py-2 text-xs text-muted"
                       >
                         <ArrowRight className="h-3.5 w-3.5 text-brand mt-0.5 shrink-0" />
                         {uc}
@@ -331,7 +331,7 @@ function AlgoCard({ algo }: { algo: AlgoDoc }) {
                   {algo.metrics.map((m, i) => (
                     <span
                       key={i}
-                      className="rounded-full border border-default bg-surface-secondary px-3 py-1 font-mono text-xs text-muted"
+                      className="rounded-full border border-border bg-surface-secondary px-3 py-1 font-mono text-xs text-muted"
                     >
                       {m}
                     </span>
@@ -347,7 +347,7 @@ function AlgoCard({ algo }: { algo: AlgoDoc }) {
             )}
 
             {/* Footer actions */}
-            <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-default/40">
+            <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-border/40">
               {algo.playgroundMode ? (
                 <Link
                   to="/playground"
@@ -357,7 +357,7 @@ function AlgoCard({ algo }: { algo: AlgoDoc }) {
                   <ArrowRight className="h-3 w-3" />
                 </Link>
               ) : (
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-default px-3 py-1.5 font-mono text-xs text-muted">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 font-mono text-xs text-muted">
                   <Clock className="h-3 w-3" /> Playground not available
                 </span>
               )}
@@ -438,7 +438,7 @@ export default function Algorithms() {
               className={`rounded-xl border p-3 text-left transition ${
                 isActive
                   ? `${meta.color} border-current`
-                  : 'border-default text-muted hover:border-brand hover:text-brand'
+                  : 'border-border text-muted hover:border-brand hover:text-brand'
               }`}
             >
               <div className="flex items-center justify-between mb-1">
@@ -462,7 +462,7 @@ export default function Algorithms() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search algorithms..."
-            className="w-full rounded-xl border border-default bg-background/50 py-2.5 pl-9 pr-4 font-mono text-sm text-brand placeholder:text-muted outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+            className="w-full rounded-xl border border-border bg-background/50 py-2.5 pl-9 pr-4 font-mono text-sm text-brand placeholder:text-muted outline-none focus:border-primary focus:ring-1 focus:ring-primary"
           />
         </div>
         <div className="flex flex-wrap gap-1.5">
@@ -471,7 +471,7 @@ export default function Algorithms() {
             className={`rounded-full border px-3 py-1.5 font-mono text-xs transition ${
               !subcategoryFilter
                 ? 'border-primary bg-brand/10 text-brand'
-                : 'border-default text-muted hover:text-brand'
+                : 'border-border text-muted hover:text-brand'
             }`}
           >
             All
@@ -485,7 +485,7 @@ export default function Algorithms() {
               className={`rounded-full border px-3 py-1.5 font-mono text-xs transition ${
                 subcategoryFilter === sc
                   ? 'border-primary bg-brand/10 text-brand'
-                  : 'border-default text-muted hover:text-brand'
+                  : 'border-border text-muted hover:text-brand'
               }`}
             >
               {sc}

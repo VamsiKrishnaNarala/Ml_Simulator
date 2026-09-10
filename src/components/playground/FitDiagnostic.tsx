@@ -66,8 +66,8 @@ export default function FitDiagnostic({
   };
 
   return (
-    <div className={`flex flex-col bg-surface-secondary border border-default rounded-xl p-5 ${className}`}>
-      <div className="flex justify-between items-center mb-4 border-b border-default/70 pb-3">
+    <div className={`flex flex-col bg-surface-secondary border border-border rounded-xl p-5 ${className}`}>
+      <div className="flex justify-between items-center mb-4 border-b border-border/70 pb-3">
         <h3 className="text-sm font-semibold text-muted uppercase tracking-wider">
           Fit Diagnostic <span className="text-[10px] font-normal normal-case text-muted bg-surface px-1.5 py-0.5 rounded ml-1">(Heuristic)</span>
         </h3>
@@ -116,7 +116,7 @@ export default function FitDiagnostic({
         </div>
       </div>
 
-      <div className="bg-surface rounded-lg p-4 border border-default/50">
+      <div className="bg-surface rounded-lg p-4 border border-border/50">
         <h4 className="text-xs font-medium text-primary mb-2">Recommendations</h4>
         <ul className="text-xs text-muted space-y-1.5 list-disc pl-4">
           {recommendations.map((rec, i) => (
@@ -125,7 +125,7 @@ export default function FitDiagnostic({
         </ul>
       </div>
 
-      <div className="mt-4 pt-4 border-t border-default/50 text-[10px] text-muted italic text-center">
+      <div className="mt-4 pt-4 border-t border-border/50 text-[10px] text-muted italic text-center">
         These thresholds are heuristic guides, not absolute rules. Results depend on dataset size, domain, and problem type.
       </div>
     </div>

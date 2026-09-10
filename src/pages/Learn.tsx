@@ -106,7 +106,7 @@ export default function Learn() {
           <strong className="text-brand">feature</strong> — something the model can look at. The last
           column is the <strong className="text-brand">label</strong> — what the model is trying to predict.
         </p>
-        <div className="mt-4 overflow-x-auto rounded-xl border border-default">
+        <div className="mt-4 overflow-x-auto rounded-xl border border-border">
           <table className="w-full text-left font-mono text-sm">
             <thead className="bg-surface-secondary/80 text-muted">
               <tr>
@@ -119,7 +119,7 @@ export default function Learn() {
             </thead>
             <tbody>
               {rows.map((row, i) => (
-                <tr key={i} className="border-t border-default/70">
+                <tr key={i} className="border-t border-border/70">
                   <td className="px-2 py-1.5">
                     <input
                       type="number"
@@ -209,7 +209,7 @@ export default function Learn() {
             <p className="font-display text-2xl font-semibold text-error">{testCount} samples</p>
           </div>
         </div>
-        <div className="mt-3 flex h-8 w-full overflow-hidden rounded-full border border-default">
+        <div className="mt-3 flex h-8 w-full overflow-hidden rounded-full border border-border">
           <div className="bg-primary/70 transition-all" style={{ width: `${trainPct}%` }} />
           <div className="flex-1 bg-rose/70 transition-all" />
         </div>
@@ -296,7 +296,7 @@ function ModuleShell({
         <button
           onClick={() => onToggle(id)}
           className={`flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-xs transition ${
-            completed ? 'border-primary bg-brand/10 text-brand' : 'border-default text-muted hover:text-brand'
+            completed ? 'border-primary bg-brand/10 text-brand' : 'border-border text-muted hover:text-brand'
           }`}
         >
           {completed ? <Check className="h-3.5 w-3.5" /> : <Circle className="h-3.5 w-3.5" />}
@@ -310,7 +310,7 @@ function ModuleShell({
 
 function FlowCard({ title, steps, accent }: { title: string; steps: string[]; accent?: boolean }) {
   return (
-    <div className={`rounded-xl border p-4 ${accent ? 'border-brand/30 bg-brand/5' : 'border-default bg-background/50'}`}>
+    <div className={`rounded-xl border p-4 ${accent ? 'border-brand/30 bg-brand/5' : 'border-border bg-background/50'}`}>
       <p className="font-mono text-[11px] uppercase tracking-wide text-muted">{title}</p>
       <div className="mt-2 flex flex-wrap items-center gap-2 font-mono text-sm text-brand">
         {steps.map((s, i) => (

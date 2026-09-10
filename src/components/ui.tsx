@@ -65,7 +65,7 @@ export function SegmentedControl<T extends string>({
           className={`rounded-full border px-3 py-1.5 font-mono text-xs transition-colors ${
             value === opt.id
               ? 'border-brand bg-brand/10 text-brand'
-              : 'border-default text-muted hover:text-primary'
+              : 'border-border text-muted hover:text-primary'
           }`}
         >
           {opt.label}
@@ -77,7 +77,7 @@ export function SegmentedControl<T extends string>({
 
 export function StatCard({ label, value, hint, className = '' }: { label: string; value: string; hint?: string; className?: string }) {
   return (
-    <div className={`rounded-xl border border-default bg-surface-secondary p-3.5 ${className}`.trim()}>
+    <div className={`rounded-xl border border-border bg-surface-secondary p-3.5 ${className}`.trim()}>
       <p className="font-mono text-[10px] uppercase tracking-wider text-muted">{label}</p>
       <p className="mt-1 font-display text-2xl font-semibold text-primary">{value}</p>
       {hint && <p className="mt-0.5 text-xs text-muted">{hint}</p>}

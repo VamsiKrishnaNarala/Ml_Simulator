@@ -38,7 +38,7 @@ export default function MetricTooltip({
       <Info className="w-4 h-4 text-muted hover:text-brand transition-colors cursor-help" />
       
       {isVisible && (
-        <div className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 bg-surface-secondary border border-default rounded-xl p-3 text-xs text-muted shadow-lg pointer-events-none transition-opacity animate-in fade-in zoom-in-95 duration-200">
+        <div className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 bg-surface-secondary border border-border rounded-xl p-3 text-xs text-muted shadow-lg pointer-events-none transition-opacity animate-in fade-in zoom-in-95 duration-200">
           <div className="mb-2">
             <div className="font-semibold text-primary text-sm mb-1">{name}</div>
             <div className="font-mono text-[10px] bg-surface p-1.5 rounded text-secondary break-words">
@@ -50,7 +50,7 @@ export default function MetricTooltip({
             {explanation}
           </p>
           
-          <div className="flex flex-col gap-1.5 mt-3 pt-3 border-t border-default/70">
+          <div className="flex flex-col gap-1.5 mt-3 pt-3 border-t border-border/70">
             <div className={`flex items-center gap-1 font-medium ${direction === 'higher' ? 'text-brand' : 'text-brand'}`}>
               {direction === 'higher' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />}
               {direction === 'higher' ? 'Higher is better' : 'Lower is better'}
